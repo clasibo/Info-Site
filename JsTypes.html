@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Exercise-Js_Types</title>
+	
+</head>
+<body>
+
+<h1>JavaScript Types - Exercise</h1>
+
+
+<div class="ex exercise1">
+	<h3>Exercise 1</h3>
+	<p>
+Evaluate the below:<br>
+5 + "34"<br>
+5 - "4"<br>
+10 % 5<br>
+5 % 10<br>
+"Java" + "Script"<br>
+" " + " "<br>
+" " + 0<br>
+true + true<br>
+true + false<br>
+false + true<br>
+false - true<br>
+3 - 4<br>
+"Bob" - "bill"<br>
+Evaluate the below comparisons:<br>
+5 >= 1<br>
+0 === 1<br>
+4 <= 1<br>
+1 != 1<br>
+"A" > "B"<br>
+"B" < "C"<br>
+"a" > "A"<br>
+"b" < "A"<br>
+true === false<br>
+true != true<br>
+
+Make the string: "Hi There! It's "sunny" out" by using the + sign:<br>
+</p>
+
+<h2> Solution - should be on the right side of the page and become vizible only when it takes an action(ex click)</h2>
+
+</div>
+
+<div class="ex exercise2">
+	<h3> Exercise 2 </h3>
+
+	
+	<h3>Make a keyless car!</h3>
+<p>This car will only let you drive if you are over 18. Make it do the following:<br>
+
+
+using prompt() and alert(), ask a user for their age.<br><br>
+IF they say they are below 18, respond with:<br>
+"Sorry, you are too young to drive this car. Powering off"<br><br>
+
+IF they say they are 18, respond with:<br>
+"Congratulations on your first year of driving. Enjoy the ride!"<br><br>
+
+IF they say they are over 18, respond with:<br>
+"Powering On. Enjoy the ride!"<br><br>
+<h2> Solution - should be on the right side of the page and become vizible only when it takes an action(ex click)</h2>
+
+<h3> Make a keyless car EVEN BETTER!</h3><br><br>
+We are improving our car from previous exercise now.<br>
+Solutions to future exercises will be in the .js file (meaning Javascript file) from now on.<br>
+
+var age = prompt("What is your age?");<br><br>
+
+if (Number(age) < 18) {<br>
+	alert("Sorry, you are too yound to drive this car. Powering off");<br>
+} else if (Number(age) > 18) {<br>
+	alert("Powering On. Enjoy the ride!");<br>
+} else if (Number(age) === 18) {<br>
+	alert("Congratulations on your first year of driving. Enjoy the ride!");<br>
+}<br><br>
+
+1. Make the above code have a function called checkDriverAge().<br> Whenever you call this function, you will get prompted for age. <br>
+Use Function Declaration to create this function.<br>
+Notice the benefit in having checkDriverAge() instead of copying and pasting the function everytime?<br><br>
+
+2. Create another function that does the same thing, called checkDriverAge2() using Function Expression.<br><br>
+
+<b>BONUS:</b> Instead of using the prompt. Now, only use console.log and make the checkDriverAge() function accept an argument of age, 
+so that if you enter:<br><br>
+checkDriverAge(92);<br>
+it returns "Powering On. Enjoy the ride!"*/<br><br>
+
+
+function checkDriverAge() {<br>
+	var age = prompt("What is your age?");<br>
+	if (Number(age) < 18) {<br>
+		alert("Sorry, you are too yound to drive this car. Powering off");<br>
+	} else if (Number(age) > 18) {<br>
+		alert("Powering On. Enjoy the ride!");<br>
+	} else if (Number(age) === 18) {<br>
+		alert("Congratulations on your first year of driving. Enjoy the ride!");<br>
+	}<br>
+}<br>
+checkDriverAge(); <br><br>
+
+
+
+var checkDriverAge2 = function() {<br>
+	var age = prompt("What is your age?");<br>
+	if (Number(age) < 18) {<br>
+		alert("Sorry, you are too yound to drive this car. Powering off");<br>
+	} else if (Number(age) > 18) {<br>
+		alert("Powering On. Enjoy the ride!");<br>
+	} else if (Number(age) === 18) {<br>
+		alert("Congratulations on your first year of driving. Enjoy the ride!");<br>
+	}<br>
+}<br>
+checkDriverAge2();<br><br>
+
+
+
+var checkDriverAge2 = function() {<br>
+	var age =  console.log("What is your age?");<br>
+	if (Number(age) < 18) {<br>
+		alert("Sorry, you are too yound to drive this car. Powering off");<br>
+	} else if (Number(age) > 18) {<br>
+		alert("Powering On. Enjoy the ride!");<br>
+	} else if (Number(age) === 18) {<br><br>
+		alert("Congratulations on your first year of driving. Enjoy the ride!");<br>
+	}<br>
+}<br>
+checkDriverAge2(); <br><br>
+
+
+/* pentru a verifica functia, in consola vom scrie checkDriverAge(age), iar la age vom trece 
+numerele pe care vrem sa le interogam */<br><br>
+function checkDriverAge(age) {<br>
+	if (Number(age) < 18) {<br>
+		return "Sorry, you are too yound to drive this car. Powering off";<br>
+	} else if (Number(age) > 18) {<br>
+		return "Powering On. Enjoy the ride!";<br>
+	} else if (Number(age) === 18) {<br>
+		return "Congratulations on your first year of driving. Enjoy the ride!";<br>
+	}<br>
+}<br><br>
+
+</div>
+
+<div class= "ex exercise3">
+<h2>Type Coercion </h2>
+<p>
+1 == '1';<br>
+//console.log = true<br>
+
+// 1 == '1' so, we have a no that is = with a text. if we use only 2 equals "==" one of them will be converted by the JS in a 
+//similar type of he other. <br>
+// so coercion means JS convert  acertain type to another type.<br>
+1 === '1' // is false because === means that the values are same type.<br>
+// coercion can be used in if statements <br>
+if(1) {<br>
+	console.log(5);<br>
+}
+console return 5 because JS convert (1) in true so it return the 5<br><br>
+
+for mode infos:<br>
+<a href=" https://dorey.github.io/JavaScript-Equality-Table">JavaScript-Equality-Table</a><br>
+<a href ="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Equality_comparisons_and_sameness</a><br>
+<a href ="https://262.ecma-international.org/5.1/#sec-11.9.3">ecma-international.org</a><br>
+</div>
+</body>
+</html>

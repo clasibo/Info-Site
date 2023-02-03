@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS Looping</title>
+</head>
+<body>
+
+
+
+<h1> Looping </h1>
+
+<h2> for ---- loop </h2>
+
+<p> - we have the following to do list:<br><br>
+var todos = [<br>
+		"thing1",<br>
+		"thing2",<br>
+		"thing3",<br>
+		"thing4",<br>
+		"thing5"<br>
+		];<br><br>
+- and we want to add '!' at the end of each item in the array<br><br>
+
+for (var i = 0; i < todos.length; i++) {<br>
+}<br><br>
+-in the upper function we are saying that: for (a JS word - which is saying: we're going to do a loop) and in this loop 
+ we going to say: (1). i (that cames from index) equals to '0' (so i starts up from 0 - the first index in the array). than we close the action with ; (2).  in the next line we are saying if i < todos.length; (closed with ; ) (todos.lenght  = 5 in our exemple), than (3) do whatever is in the function {} and (4) do i++ (go to next index - i ++ means = add 1 to the value of i -).
+ And do this process until th condition of i < todos.length is false <br><br>
+
+ // so to add the "!" at the end of each item, we have to access the todos[i] that is equals with the items inside the array
+ // and write this function:<br><br>
+ /* 
+for (var i = 0; i < todos.length; i++) {<br>
+	console.log(todos[i] + "!");<br><br>
+}
+// in order to change the todos list by adding the '!' (as when we interogate console for the todos; to obtain the item +!) we have to asign the modification to the main array and change the function in:<br><br>
+
+for (var i = 0; i < todos.length; i++) {<br>
+	todos[i] = todos[i] + "!"; }<br><br>
+
+// To pop-up all the elem. from the array, we'll use the .pop() method:<br><br>
+
+var todoLung = todos.length;<br>
+for (var i = 0; i < todoLun; i++) {<br>
+	todos.pop();<br>
+}<br><br>
+// we made a variable todoLun and asign the todos.length value (which in our case is 5) and changed the condition i < todoLun<br>
+// so i will be < 5 until will pop all the items because I will always be < than 5 in our case <br>
+// if we maintain the condition i < todos.length the system will check this:<br><br>
+(1) i = 0; 0 < 5 => pop "thing5"; add 1 to i;<br>
+(2) i = 1; 1 < 4 (the todos.length become 4 becouse we pop a string); pop "thing4"; add 1 to i;<br>
+(3) i = 2; 2 < 3; pop "thing3"; add 1 to i<br>
+(4) i = 3; 3 !< 2; stop<br><br>
+so, the function will retun: todos = [<br>
+		"thing1",<br>
+		"thing2", ];<br><br>
+	</p>	
+
+<h2>while ---- loop </h2>
+<p>
+var counterOne = 0;<br><br>
+
+while (counterOne < 10) {<br>
+	console.log(counterOne);<br>
+	counterOne++<br>
+}<br><br>
+// if we run this in the console we'll receive the no from 0 to 9 each one in a single string<br><br>
+var counterOne = 10;<br>
+while (counterOne > 0) {<br>
+	console.log(counterOne);<br>
+	counterOne--<br>
+}<br><br>
+// if we run this in the console we'll receive the no from 10 to 1 each one in a single string<br><br>
+</p>
+
+<h2> do - while --- loop </h2>
+
+<p>
+var counterTwo = 10;<br>
+do {console.log(counterTwo)<br>
+	counterTwo--;<br>
+} while (counterTwo > 0);<br><br>
+
+// the diference between while loop and do loop is that do loop do first the function + the minus, and than check if > 0 and retake if needed.<br>
+</p>
+
+<h2> forEach --- loop </h2>
+<p>
+var todos = [<br>
+		"thing1",<br>
+		"thing2",<br>
+		"thing3",<br>
+		"thing4",<br>
+		"thing5"<br>
+		];<br><br>
+todos.forEach(function(i) {<br>
+	console.log(i +" !");<br>
+})<br><br>
+
+// we say that forEach element in the todos (todos.forEach) run the function(i) that says to console.log it's own argument definited by us ((i)-in our case) and add "!" at every element in todos.<br>
+//the argument of the function can be named as we wish not necesary (i) because the function will be applyed to each item of 
+//todos<br>
+// if we want to access the index of the array, we have to insert the second argument in the function and call it:<br><br>
+var todos = [<br>
+		"thing1",<br>
+		"thing2",<br>
+		"thing3",<br>
+		"thing4",<br>
+		"thing5"<br>
+		];<br><br>
+todos.forEach(function(bla, i) {<br>
+	console.log(bla +" !", i );<br>
+})<br><br>
+
+// to make it simple we will create a function named logTodos and asign that function to forEach. The function is created to run it
+//if needed in other arrays. If we make another array with other items inside and we want to asign the function to it, will do:<br><br>
+// otherTodosList.forEach(logTodos);<br><br>
+
+var todos = [<br>
+		"thing1",<br>
+		"thing2",<br>
+		"thing3",<br>
+		"thing4",<br>
+		"thing5"<br>
+		];<br><br>
+
+function logTodos(bla, i){<br>
+	console.log(bla + " !", i);<br>
+}<br><br>
+todos.forEach(logTodos);<br><br>
+</p>
+
+<h2>Logical exercise</h2>
+<p>
+// 1.we have a databse which is a array with multiple objects and inside every object we have two proprietie: usename and password each one with it's own value<br>
+// 2. we have a newsfeed database (array with multiple object and inside of them we have proprietie: username and timeline. each one with it's own value<br>
+//3. when accessing the webpage we ask for the username and password by prompt. If those are matching the values of the proprieties stored in our database, then we will give rights to acces the newsfeed proprieties and value<br><br>
+
+var database = [<br>
+		{<br>
+	username: "clauss",<br>
+	password: "supersecret"},<br>
+		{<br>
+	username: "sally",<br>
+	password: "123",},<br>
+		{<br>
+	username: "ingrid",<br>
+	password: "777",}<br>
+	];  <br>
+ 	var newsfeed = [<br>
+	{<br>
+		username: "Bobby",<br>
+		timeline: "So tired from all that learning!"<br>
+	},<br>
+	{<br>
+		username: "Sally",<br>
+		timeline: "Javascript is sooooo cool!"<br>
+	},<br>
+	{<br>
+		username: "Mitch",<br>
+		timeline: "Javascript is preeetyy cool!"<br>
+	}];<br><br>
+
+
+//<b> what we have to do: </b><br>
+(1) make a prompt for username and password;<br>
+(2) create a function that checks if the username and password matches our database (if true - go to next step / if false alert wrong)<br>
+(3) create a function that give access to newsfeed if the function made at pct. (2) returns true<br>
+(4) run the function created at step (3) and return it's result in console<br><br>
+
+//(1).<br>
+let usernamePrompt = prompt("What's your name");<br>
+let passwordPrompt = prompt("enter password");<br><br>
+
+//(2).<br>
+function isUserValid (username, password) {<br>
+	for (var i = 0; i < database.length; i++) <br>
+	{<br>
+	if (database[i].username === username &&<br>
+		 database[i].password === password) {<br>
+		return true; } }<br>
+	 return false; }<br><br>
+// we created the function isUserValid with the argument (username, password) which will check all item in the data base according with the for looping and if index-database.user&pass matches with the arguments of the function will return true, else returns false
+//We'll use this function in a new function - signIn with the same arguments... see step (3)<br><br>
+
+//(3).<br>
+function signIn(username, password) <br>
+ {<br>
+	if (isUserValid(username, password)) {<br>
+		console.log(newsfeed); }<br>
+	else { <br>
+		alert("Sorry, wrong username and password");<br>
+	};<br><br>
+//as we see, we used same argument in the signIn function as in isUserValid - (username, password)<br><br>
+
+//(4)<br>
+signIn(userNamePrompt, passwordPrompt)<br><br>;
+
+//as we see, to be able to run the signIn function we have to name the arguments we would like to refer at (in our case the ones
+called by prompt)<br><br>
+
+//Bonus: we made diferent alerts for the 3 wrong possible cases of inserting pass / user in prompt:<br><br>
+
+/*if (username === database[0].username && <br><br>
+	password === database[0].password)<br>
+			{<br>
+	console.log(newsfeed);<br>
+	}<br><br>
+
+	else if (username === database[0].username && <br>
+		password !== database[0].password) {<br>
+
+		alert("Wrong password !!!")<br>
+}<br><br>
+
+	else if (username !== database[0].username && <br>
+		password === database[0].password) {<br>
+
+		alert("Wrong username !!!")<br>
+		
+ }<br><br>
+ 	else {<br>
+ 		alert("Wrong pass and username");<br>
+ 	}<br>
+	}*/<br><br>
+
+</p>
+
+<h1> Advance Looping</h1>
+<p>
+
+const basket = ['apples', 'oranges', 'grapes'];<br><br>
+
+// we'll see diferent ways for looping throught the upper array<br><br>
+
+//1st way<br><br>
+
+for ( let i = 0; i < basket.length; i++ ) {<br>
+	console.log(basket[i]);<br>
+}<br><br>
+// we'll receive all the elements from the array basket<br><br>
+
+//2nd way<br><br>
+basket.forEach(item => {<br>
+	console.log(item);<br>
+})<br><br>
+</p>
+
+<h2>--------for of</h2>
+<p>
+// what we are doing with 'for of' is iterating over the array. iterating means to be able to go one by one through an item 
+//(like an array - in our case) a looks at it's items. <br>
+// in JS we can iterate over arrays and strings<br>
+// the items from an array are iterable<br><br>
+
+for (item of basket) {<br>
+	console.log(item);<br>
+}<br><br>
+</p>
+
+<h2>--------for in</h2>
+<p>
+// for in - let us loop through the object items. <br><br>
+
+const basket = ['apples', 'oranges', 'grapes'];<br>
+const detailedBasket = {<br>
+apples: 5,<br>
+oranges: 10,<br>
+grapes: 1000<br>
+ }<br><br>
+
+for (item in detailedBasket) {<br>
+	console.log(item)<br>
+}<br><br>
+// when we call the upper function, we'll receive only the keys/items/properties (apples, oranges, grapes)<br>
+// what we are doing with this function applyed on an object is called: enumerating - because properties of an object are<br>
+// numerable and an object in JS is enumerable only if it allows us to see it's properties 
+<br><br>
+// if we call the bellow function:<br><br>
+for (item in detailedBasket) {<br>
+	console.log(item[0])<br>
+}<br><br>
+// (item[0]) - we'll receive the first letter from every item/key/properties inside the object (in our case: a, o, g)<br><br>
+
+/* if we apply the for in function (atention!!! we sad that it loops objects), we see that we'll receive the index of the array.<br>
+That is because, we can think that an array looks like an object. ex:<br><br>
+const basket = ['apples', 'oranges', 'grapes'];<br>
+the upper array can be wrote as an object like this:<br><br>
+basket = {<br>
+	0: 'apples',<br>
+	1: 'oranges',<br>
+	2: 'grapes'<br>
+	}<br><br>
+
+so, if we call the function (for in) to the array basket:<br><br>
+
+const basket = ['apples', 'oranges', 'grapes'];<br><br>
+
+for (item in basket) {<br>
+	console.log(item);<br>
+}<br><br>
+
+will receive : 0 1 2 - meaning the index of the basket as we defined upper, as an object<br>
+</p>
+
+<h2>--------------------------------- Exercise ---------------------------------</h2>
+<p>
+const basket = ['apples', 'oranges', 'grapes'];<br><br>
+const detailedBasket = {<br>
+  apples: 5,<br>
+  oranges: 10,<br>
+  grapes: 1000<br>
+}<br><br>
+
+//1<br>
+for (let i = 0; i < basket.length; i++) {<br>
+  console.log(basket[i]);<br>
+}<br><br>
+
+//2<br>
+basket.forEach(item => {<br>
+  console.log(item);<br>
+})<br><br>
+
+for (item in detailedBasket) {<br>
+  console.log(item);<br>
+}<br><br>
+
+for (item of basket) {<br>
+  console.log(item);<br>
+}<br><br>
+
+// Question #1:<br>
+// create a function called biggestNumberInArray() that takes<br>
+// an array as a parameter and returns the biggest number.<br>
+
+// biggestNumberInArray([-1,0,3,100, 99, 2, 99]) should return 100;<br>
+// Use at least 3 different types of javascript loops to write this:<br>
+const array = [-1,0,3,100, 99, 2, 99] // should return 100<br>
+const array2 = ['a', 3, 4, 2] // should return 4<br>
+const array3 = [] // should return 0<br><br>
+
+function biggestNumberInArray(arr) {<br>
+  let highest = 0;<br>
+  for (let i = 0; i < arr.length; i++) {<br>
+    if (highest < arr[i]) {<br>
+      highest = arr[i];<br>
+    }<br>
+  }<br>
+  return highest<br>
+}<br><br><br>
+
+function biggestNumberInArray2(arr) {<br>
+  let highest = 0;<br>
+  arr.forEach(item => {<br>
+    if (highest < item) {<br>
+      highest = item;<br>
+    }<br>
+  })<br>
+  return highest;<br>
+}<br><br><br>
+
+function biggestNumberInArray3(arr) {<br>
+  let highest = 0;<br>
+  for (item of arr) {<br>
+    if (highest < item) {<br>
+      highest = item;<br>
+    }<br>
+  }<br>
+  return highest;<br>
+}<br><br><br>
+// Question #2:<br>
+// Write a function checkBasket() that lets you know if the item is in the basket or not<br><br>
+amazonBasket = {<br>
+  glasses: 1,<br>
+  books: 2,<br>
+  floss: 100<br>
+}<br><br>
+
+function checkBasket(basket, lookingFor) {<br>
+  for (item in basket) {<br>
+    if (item === lookingFor) {<br>
+      return `${lookingFor} is in your basket`<br>
+    }<br>
+  }<br>
+  return 'that does not exist in your basket'<br>
+}<br><br>
+</p>
+
+</body>
+</html>
+
+

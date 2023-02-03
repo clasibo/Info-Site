@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JsVariables</title>
+</head>
+<body>
+	<h1> JavaScript Variable - Exercise</h1>
+
+<div class="ex exercise1">
+	<h3> Exercise 1 </h3>
+	<p>
+
+Evaluate what answers you would get if you ran this in the
+Javascript Console in Google Chrome. <br> Answer the questions then 
+check them by copying them and running it in the console yourself 
+Line by line <br><br>
+
+br>
+1.add variable "firstName" and "lastName" - so that they equal your name<br><br>
+create a variable that holds the answer - of "firstName" + " " + "lastName"<br><br>
+
+2. Evaluate this question. What is a + b?<br><br>
+var a = 34;<br>
+var b = 21;<br>
+a = 2;<br>
+a + b // what is the answer here?<br><br>
+
+3.What is c equal to?<br>
+var c;<br>
+
+<h3> Exercise 2 </h3>
+
+<b>Make a Calculator! using prompt(), and variables, make a program that does the following:</b><br>
+1. Prompts the user for first number.<br>
+2. Stores that first number<br>
+3. Prompts the user for the second number.<br>
+4. stores that number and responds with the SUM by using an alert. <br> <br>
+
+
+<b>BONUS:</b> Make a program that can subtract, multiply, and also divide!<br>
+
+<h3> Solution </h3>
+
+var first = prompt("enter first number");<br>
+var second = prompt("enter second number");<br>
+var sum = Number(first) + Number(second);<br>
+alert(sum);<br><br>
+
+---Am creat variabila first si second prin functia prompt care va face sa se deschida i fereasta in care sa fie 
+textul din paranteza. Vom da valori in fiecare fereastra, iar consola va afisa o noua ferestra cu suma celor 
+doua numere introduse pentru ca am creat alerta cu variabila sum a carei valori le-am mentionat ca numar dintre 
+prima si a doua variabila.
+La introducerea textului sum in consolo, vom primi direct rezultat celor 2 numare deja mentionate in ferestrele
+anterioare. ---<br><br>
+
+var first = prompt("enter first number");<br>
+var second = prompt("enter second number");<br>
+var sum = Number(first) + Number(second);<br>
+alert("The sum is: " + sum);<br><br>
+Daca vom schimba alerta in forma de mai sus, adica:1. mentionam textul intre "" si 2.adunam variabila sum, vom 
+obtine o fereastra cu textul "The sum is si valoarea sum."<br><br>
+
+Pentru a crea spatiu intre texte se scrie "  " <br>
+
+
+<h3> Exercise 3 </h3>
+
+<b>change everything below to the newer Javascript!</b><br><br>
+
+// let + const<br>
+var a = 'test';<br>
+var b = true;<br>
+var c = 789;<br>
+a = 'test2';<br><br>
+
+<h3>Solution</h3>
+let a = 'test';<br>
+let b = true;<br>
+let c = 789;<br>
+a = 'test2'<br><br>
+
+
+<b> Destructuring</b><br>
+var person = {<br>
+    firstName : "John",<br>
+    lastName  : "Doe",<br>
+    age       : 50,<br>
+    eyeColor  : "blue"<br>
+};<br><br>
+
+var firstName = person.firstName;<br>
+var lastName = person.lastName;<br>
+var age = person.age;<br>
+var eyeColor = person.eyeColor;<br><br>
+
+<h3>Solution</h3>
+
+const person = {  <br>
+    firstName : "John",<br>
+    lastName  : "Doe",<br>
+    age       : 50,<br>
+    eyeColor  : "blue"<br>
+};<br><br>
+const { firstName, lastName, age, eyeColor } = person;<br><br>
+
+
+<b> Object properties</b><br>
+var a = 'test';<br>
+var b = true;<br>
+var c = 789;<br><br>
+
+var okObj = {<br>
+  a: a,<br>
+  b: b,<br>
+  c: c<br>
+};<br><br>
+
+<h3>Solution</h3>
+let a = 'test';<br>
+let b = true;<br>
+let c = 789;<br><br>
+
+const obj = {a, b, c};<br><br>
+
+
+<b>Template strings</b><br>
+var message = "Hello " + firstName + " have I met you before? I think we met in " + city + " last summer, no???";<br><br>
+
+<h3>Solution:</h3>
+
+const message = `Hello ${firstName} have I met you before? I think we met in ${city}. last summer no???`;<br><br>
+
+
+<b>default arguments</b><br><br>
+default age to 10;<br>
+function isValidAge(age) {<br>
+    return age<br>
+}<br><br>
+
+<h3>Solution:</h3>
+
+const isValidAge = (age = 10) => age;<br><br>
+
+<b>Symbol</b><br>
+Create a symbol: "This is my first Symbol"<br><br>
+
+const sym = Symbol('This is my first Symbol');<br><br>
+
+<b> Arrow functions</b><br><br>
+function whereAmI(username, location) {<br>
+    if (username && location) {<br>
+        return "I am not lost";<br>
+    } else {<br>
+        return "I am totally lost!";<br>
+    }<br>
+}<br><br>
+
+<h3>Solution:</h3>
+const whereAmI = (username, location) => {<br>
+    if (username && location) {<br>
+        return "I am not lost";<br>
+    } else {<br>
+        return "I am totally lost!";<br>
+    }<br>
+}<br>
+
+<h3> Variable: Let & const </h3>
+
+const player  = "bobby";<br><br>
+
+let experience = 100;<br>
+let wizardLevel = false;<br><br>
+
+if (experience > 90) {<br>
+	let wizardLevel = true;<br>
+	console.log("insideIf", wizardLevel);<br>
+}<br>
+console.log("outsideIf", wizardLevel);<br><br>
+
+<b>Explications:</b> when we run thos code in console, we get undefinite. and when will ask for wizardLevel will get false !!!
+/if we change the let syntax from the wizardLevel in var we will get the "true" answer when we run the code.<br>
+see below:<br><br>
+
+let experience = 100;<br>
+var/let wizardLevel = false;<br><br>
+
+if (experience > 90) {<br>
+	var/let wizardLevel = true;<br>
+} <br><br>
+
+<b>with variable we are able to create a scope inside of a function:</b><br><br>
+function() {<br>
+}<br><br>
+ with let, we can create a variable inside an IF - like in our case. So the scope is created inside the if and if we interogate 
+ the cariable inside the if we get it's value mention there and if we interogate outside of if (in the window scope) we get the 
+value mentioned there (outside the if / in the window). If the let wizard was a var, both of the value retunred byu the console 
+ will be true (inside if and outside of if).<br>
+ see below:<br><br>
+ const player  = "bobby";<br><br>
+
+let experience = 100;<br>
+var wizardLevel = false;<br><br>
+
+if (experience > 90) {<br>
+	var wizardLevel = true;<br>
+	console.log("insideIf", wizardLevel);<br>
+}<br>
+console.log("outsideIf", wizardLevel);<br><br> 
+
+<b> const = constant </b> - is used when we don't want to change the variable or function values (so nobody will change it)<br>
+<b>Exercise:</b> <br><br>
+const a = function() { console.log("a") }<br><br>
+if the const is used in creating an object you can change a propriety that is inside the object, but cannot reasign its variable<br><br>
+
+<b>Exemple:</b><br><br> 
+	const obj = {<br>
+	player: "bobby",<br>
+	experience: 100,<br>
+	wizardLevel: false<br>
+	}<br><br>
+undefined<br>
+obj;<br>
+{player: 'bobby', experience: 100, wizardLevel: false}experience: 100player: "bobby"wizardLevel: false[[Prototype]]: Object<br><br>
+
+obj.wizardLevel = true;<br>
+true<br><br>
+
+obj;<br>
+{player: 'bobby', experience: 100, wizardLevel: true}experience: 100player: "bobby"wizardLevel: true[[Prototype]]: Object<br><br>
+
+obj = blabla;<br>
+VM647:1 Uncaught ReferenceError: blabla is not defined<br>
+    at <anonymous>:1:1<br><br>
+
+<b> Exemple:</b><br><br>
+
+	const obj = {<br>
+	player: "bobby",<br>
+	experience: 100,<br>
+	wizardLevel: false<br>
+	}<br><br>
+is we want to keep constant some proprieties, usualy we make those:<br><br>
+const player = obj.player;<br>
+const experience - obj.experience;<br>
+let wizardLevel = obj.wizardLevel;<br><br>
+
+but with those new syntaxes (let and const) we can make:<br><br>
+const { player. experince } = obj; <br><br>
+so we selected the proprieties that we want to acces from the object. so we can use player and 
+experience anywhere we want in the code<br><br>
+for let we cand do <br><br>
+let { wizardLevel } = obj;<br><br>
+
+
+<h3> New ways of declaring object proprieties </h3>
+const name = 'john snow';<br>
+const obj = {<br>
+	[name]: 'hello',<br>
+	['ray' + ' smith']: 'hihi'<br>
+}<br><br>
+
+[name] and all that are inside [] are dynamic proprieties of the object<br>
+if we run those in console we get:<br><br>
+
+ const name = 'john snow';<br>
+	const obj = {<br>
+	[name]: 'hello',<br>
+	['ray' + ' smith']: 'hihi'<br>
+}<br>
+undefined<br><br>
+
+obj;<br>
+{john snow: 'hello', ray smith: 'hihi'}<br>
+john snow:"hello"<br>
+ray smith: "hihi"<br>
+[[Prototype]]: Object<br><br>
+
+const a = "Bla";<br>
+const b = true;<br>
+const c = {};<br><br>
+const obj = {a, b, c};<br><br>
+
+if we have const defined, we can add those into an object, we can make const obj = {a, b, c} like we did, instade of the 
+ previsios declaration that was like: const obj = { a: a, b: b, c: c}; So with ES6 if the propriety and value are the 
+ same we can do const obj = {a, b, c}; so we can remove the declaration a:a and so on. <br><br><br>
+
+<h3>Template strings</h3>
+
+const name = "Sally";<br>
+const age = 34;<br>
+const pet = "cat"<br><br>
+
+const greeting = "Hello" + name + " you seem to be doing " + greeting <br>
+const greetingBest = `Hello ${name}, you seem to be ${age-10} years old. What a lovely ${pet} you have`<br><br>
+
+const greetingBest = ``(that is call template string - and inside of ``can be used "" ''in the same time without getting errors)<br><br>
+
+
+<h3>Default arguent </h3>
+
+function greet(name='', age=30, pet='dog'){<br>
+	return `Hello ${name}, you seem to be ${age-10} years old. What a lovely ${pet} you have`;<br>
+}<br><br>
+in this function we declarate some variable (name='', age=30, pet='dog') and when we call it we ask for a return that 
+has same variable. So what we did is we sad: if name ='' and age 30 and pet doc, retun them in that text taking into 
+consideration that the window do not know the variable and we didn't declared them.
+if we declare the properties when we run the function, the console will print that.<br>
+<b>Ex:</b> in the console: greet('radu', 50, 'fish'); <br>
+with the mention that the minus form the age will apply. <br><br>
+
+
+
+<h3>JavaScript Type --- Symbol ---</h3>
+let sym1 = Symbol();<br>
+let sym2 = Symbol('aaa');<br>
+let sym3 = Symbol('aaa');<br><br>
+
+symbol are use beacause they create completly unic type - even sym2 is similar with sym3 if we intergate in the console
+<b>sym2===sym3 we receive false.</b> So it never be any name conflict. <br><br>
+
+let sym1 = Symbol();<br>
+let sym2 = Symbol('aaa');<br>
+let sym3 = Symbol('aaa');<br>
+undefined<br><br>
+
+sym1;<br>
+Symbol()<br>
+sym2;<br>
+Symbol(aaa)<br>
+sym3;<br>
+Symbol(aaa)<br><br>
+
+sym2 === sym3;<br>
+false <br>
+
+<h3>Arrow function</h3>
+function add(a, b) {<br>
+	return a + b;<br>
+}<br><br>
+
+the below funtion is an <b>arrow function:</b><br><br>
+const add2 = (a, b) => a + b;<br><br>
+
+function add(a, b) {<br>
+	return a + b;<br>
+}<br><br>
+const add2 = (a, b) => a + b;<br>
+undefined<br><br>
+
+add(5, 7);<br>
+12<br><br>
+add2(5, 7);<br>
+12 <br><br>
+
+
+<h3>Scope</h3>
+
+<b>Root scope (window) - parent</b><br>
+var fun = 5;<br><br>
+
+function firstFuntion(){<br>
+	//child scope<br>
+	var fun ="aaaaa";<br>
+	console.log(1, fun);<br>
+}<br><br>
+function secondFuntion(){<br>
+	//child scope<br>
+	var fun ="bbbbb";<br>
+	console.log(2, fun);<br>
+}<br><br>
+function thirdFuntion(){<br>
+	//child scope<br>
+	fun ="ccccc";<br>
+	console.log(3, fun);<br>
+}<br><br>
+
+console.log(fun);<br>
+firstFuntion();<br>
+secondFuntion();<br>
+thirdFuntion();<br>
+console.log(fun);<br>
+secondFuntion();<br>
+console.log(fun);<br><br>
+
+In this exercise we made the following: first we made a fun variable and declare it as it's 5, then we made three function:  
+first two with a variable fun assigned other values and a third with a absolute fun declaration. <br>
+So when we run those functions
+the value of fun will be change according with the assign value in the third function (absolute value NOT as variable)
+if we run the second function, we will obtain the declared console.log value, but if we console.log(fun); the value we'll obtain
+is the valur declarated as absolute valur in the third function. 
+so, the child scope will replace the valur of the variable declareted in the parent scope.<br>
+
+</body>
+</html>
+
+

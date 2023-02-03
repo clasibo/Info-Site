@@ -1,0 +1,296 @@
+<!--Those are my personal notes acumutated from the online courses I've taken -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Personal Notes</title>
+	<link rel="stylesheet" type="text/css" href="personalnote.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300' rel='stylesheet' type='text/css'>
+</head>
+<style>
+body {
+	margin: 40px;
+}
+</style>
+<body>
+	<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank"><h1 class="text-center"> About Flexbox</h1></a>
+
+<ul>
+	<li> Funtia Flex se foloseste pentru a pozitiona elementele in pagina. Reperul pentru pozitionare este linia orizontala si veriticala a paginii. In general, se creeaza o clasa principala sub forma de container (div class=”container” >clase copii). Aceasta avand si functia de clasa parinte. In interiorul clasei se vor creea clase de copii (flex items).</li>
+	<li>Functiile pe care le suporta Flexbox sunt urmatoarele:</li><br>
+	<li>Proprietati pt clasa parinte:</li>
+	<ol>
+		<li> <b>Display </b> – aceasta valoare defineste containerul flex (inline or block – depending of the given value and it enables a flex context for all its direct children). <br>
+		Atentie: coloanele CSS nu au niciun efect in containerul flex.<br>
+		ex:<br>
+	.container { <br>
+	Dispay: flex; or inline-flex <br>
+	}
+   		<li> <b>Flex-direction </b>– aceasta functie stabileste axele principala a directiei elementele din contaierul flex. Flexbox este un layout cu o singura directie (mai putin cand se foloseste functia wrap).<br>
+    Valori:<br>
+    		<ul>
+				<li>:row (default) - left to right in ltr; right to left in rtl</li>
+				<li>:row-reverse - right to left in ltr; left to right in rtl</li>
+				<li>:column - same as row but top to bottom </li>
+				<li>:column-reverse - same as row-reverse but bottom to top</li>
+			</ul>
+
+ <li> <b>Flex-wrap</b> – Acesta proprietate permite elementelor sa se intinda pe cate linii este necesar pentru a incapea conform proprietatilor/valorilor date. Standard elementele din flex se vor inghesui pe singura linie.
+By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property. </li>
+ Valori:
+:nowrap (default) -  all flex items will be on one line
+:wrap - flex items will wrap onto multiple lines, from top to bottom.
+:wrap-reverse -  flex items will wrap onto multiple lines from bottom to top.
+
+ <li> <b>Flex-flow </b> – este o prescurtare a functiilor flex-direction si flex-wrap care defineste directia si modul in care elementele se vor intine (pe o linie sau pe mai multe). Valoarea initiala (cf proprietatii initiale a flexbox-ului) este row nowrap </li>
+Valorile acestei functii sunt cele ale flex-direction si flex-wrap
+Ex. 
+.container {
+Flex-flow: column wrap;
+}
+ <li> <b>Justify-content: </b>- aliniaza elementele in linia in care au fost create. </li>
+ 	Valori:
+:flex-start – aliniza elementele din container la inceputul (cf directiei setate de flex)
+:flex-end – aliniza elementele din container la sfarsit (cf directiei setate de flex)
+:center – aliniza elementele din container in centru
+:space-between – aliniaza elementele cu spatii egale intre ele (primul si ultimul element vor fi la capatul containerului/liniei). The first item will have one unit of space against the container edge, but two units of space between the next item because that next item has its own spacing that applies
+:space-around – aliniaza elementele cu spatii egale intre ele (primul si ultimul element vor fi afisate cu spatiu fata de capatul containerului / liniei)
+:space-evenly – aliniaza elementele cu spatii egale intre ele (primul si ultimul element vor fi afisate cu spatiu egal atat intre ele, cat si fata de capatul containerului / liniei)
+Urmatoarele valori inca nu sunt suportate de unele browsere:
+•	:start - items are packed toward the start of the writing-mode direction.
+•	:end - items are packed toward the end of the writing-mode direction.
+•	:left - items are packed toward left edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like start.
+•	:right - items are packed toward right edge of the container, unless that doesn’t make sense with the flex-direction, then it behaves like end
+
+ <li><b> align-items:</b> defineste pozitionarea elementelor din containerul flex pe verticala. Asa cum justify-content defineste pozitionarea elementelor pe orizonala. </li>
+  Valori
+:stretch (default) - stretch to fill the container (still respect min-width/max-width)
+:flex-start / start / self-start - items are placed at the start of the cross axis. The difference between these is subtle, and is about respecting the flex-direction rules or the writing-mode rules.
+:flex-end / end / self-end - items are placed at the end of the cross axis. The difference again is subtle and is about respecting flex-direction rules vs. writing-mode rules.
+:center - items are centered in the cross-axis
+:baseline: items are aligned such as their baselines align
+
+ <li> <b>align-content:</b> proprietate care aliniza liniile din cadrul containerului unde exista extra spatiu in axele containerului. Efectul este similar cum justify-content aliniaza elementele individual pe axa principala <br>
+Note: This property only takes effect on multi-line flexible containers, where flex-wrap is set to either wrap or wrap-reverse). A single-line flexible container (i.e. where flex-wrap is set to its default value, no-wrap) will not reflect align-content.</li>
+Valori:
+:normal (default) - items are packed in their default position as if no value was set.
+:flex-start / start - items packed to the start of the container. The (more supported) flex-start honors the flex-direction while start honors the writing-mode direction.
+:flex-end / end - items packed to the end of the container. The (more support) flex-end honors the flex-direction while end honors the writing-mode direction.
+:center - items centered in the container
+:space-between - items evenly distributed; the first line is at the start of the container while the last one is at the end
+:space-around - items evenly distributed with equal space around each line
+:space-evenly - items are evenly distributed with equal space around them
+:stretch - lines stretch to take up the remaining space
+
+ <li class="gap"> <b> gap, row-gap, column-gap </b>– proprietate ajuta la definirea spatiilor dintre elemelete flex. Spatiul definit este doar intre elemete si nu intre elemente si marginile containerului.</li>
+Ex: <br>
+.container {<br>
+  display: flex;<br>
+  ...<br>
+  gap: 10px;<br>
+  gap: 10px 20px; /* row-gap column gap */<br>
+  row-gap: 10px;<br>
+  column-gap: 20px;<br>
+}<br>
+-	The behavior could be thought of as a minimum gutter, as if the gutter is bigger somehow (because of something like justify-content: space-between;) then the gap will only take effect if that space would end up smaller.
+-	It is not exclusively for flexbox, gap works in grid and multi-column layout as well.</li>
+</ul>
+
+<a href="https://css-tricks.com/almanac/properties/g/gap/" target="_blank"> <h1 class="text-center"> GAP</h1></a>
+
+<ul>
+ <li> <b>Proprietatile gap in CSS sunt prescurtarea pentru row-gap si column-gap, precizand dimensiunea spatiunilui dintre liniile si coloanele elementelor din tabeli (grid, flex, multi-column layouts)</b></li>
+
+<p>/* Grid layout */<br>
+.container {<br>
+display: grid;<br>
+grid-template-columns: repeat(3, 1fr);<br>
+grid-template-rows: 1fr 2fr 1fr;<br>
+gap: 30px 20px;<br>
+}<br>
+/* Flex layout */<br>
+.container {<br>
+display: flex;<br>
+gap: 10%;<br>
+}<br>
+/* Multi-column layout */<br>
+.container {<br>
+column-count: 5;<br>
+gap: 20px;<br>
+}<br>
+
+
+ <li><b>Functia gap accepta una sau doua valori.</b><br>
+ a. O singura valoare va seta distanta atat pentru randuri, cat si pentru colone, cu aceeasi valoare.<br>
+ b. Cand se utilizeaza doua valori, prima seteaza distant liniiara (row-gap), iar cea de-a doua distanta verticala (column-gap).</li><br>
+ <b>Ex:</b><br>
+.container {<br>
+  gap: 1rem;<br>
+  /* Is equivalent to:<br>
+  *  row-gap: 1rem;<br>
+  *  column-gap: 1rem<br></li>
+  */<br>
+  
+  gap: 10px 15%;<br>
+  /* Is equivalent to:<br>
+  *  row-gap: 10px;<br>
+  *  column-gap: 15%;<br>
+  */<br>
+}<br>
+<b>!!! </b> The specification for the CSS Grid Layout Module <b>defined the space between grid tracks using the grid-gap property.</b> gap is intended to replace it so that gaps can be defined in multiple CSS layout methods, like flexbox, but grid-gap still needs to be used in instances where a browser may have implemented grid-gap but has yet to start supporting the newer gap property.
+
+<ol>
+<b>Gap: accpta urmatoarele valori:</b>
+
+<li> <b>normal:</b>(Default) The browser will specify a used value of 1em for multi-column layout and 0px for all other layout contexts (i.e. grid and flex).</li>
+<li><b> length:</b> Any valid and non-negative CSS length, such as px, em, rem and %, among others.
+<li><b>percentage:</b> The size of the gap as a non-negative percentage value relative to the dimension of the element. (See below for details.)</li>
+<li><b>initial:</b> Applies the property’s default setting, which is normal.</li>
+<li><b>inherit:</b> Adopts the gap value of the parent.</li>
+<li><b>unset:</b> Removes the current gap from the element.</li>
+</ol>
+<b>Percentages in gap properties <*percentage>: </b>
+When the size of a container in the gap dimension is definite, gap resolves percentages against the size of the container’s content box in any layout types.
+ 
+In other words, when the browser knows the size of the container, it can calculate the percentage value of the gap. For example, when the container’s height is 100px and the gap is set to 10%, browser knows that 10% of 100px is 10px.
+But when the browser doesn’t know the size, it will wonder, “10% of what?” In these cases, gap behaves differently based on the layout type.
+In a grid layout, percentages resolve against zero for determining intrinsic size contributions, but resolve against the element’s content box when laying out the box’s contents, meaning it will put space between items but the space doesn’t affect the container’s size.
+Adica elementele se vor misca in afara containerului. Valorile setate ca distanta intre linii/coloane se vor aplica doar pentru elemente, nu si pentru container. In astfel de situatii sunt necesare urmatoarele actiuni:<br>
+(i)	 sa se defineasca dimensiunea containerului astfel incat sa se aplice corect procentul<br>
+(ii) sa se seteze valoarea spatiile grid in px, sau cu o alta valoare exacta. <br><br>
+
+<a href="https://css-tricks.com/almanac/properties/g/gap/#aa-percentages-in-gap-properties" target="_blank">In this demo,</a> the container’s height is not definite. See what happens when you increase the gap size. Then set the gap in pixel units and try again!<br>
+
+
+In a flex layout, percentages resolve against zero in all cases, meaning that gaps will not apply when the size of the container <b>is not known to the browser.</b><br>
+<hr width="100px">
+<a href="https://css-tricks.com/almanac/properties/g/gap/#aa-percentages-in-gap-properties" target="_blank">See this link</a><hr width="100px">
+
+
+<b>Using the calc() function with gap</b><br>
+You can use calc() function to specify the size of the gap but, at the time of this writing, there is no support for it on Safari and iOS.<br>
+.flex-layout {<br>
+  display: flex;<br>
+  gap: calc(5vh + 5px) calc(5vw + 5px);<br>
+}<br>
+ 
+.grid-layout {<br>
+  display: grid;<br>
+  grid-template-columns: repeat(3, 1fr);<br>
+  gap: calc(5vmin + 5px);<br>
+}<br>
+
+
+
+<a href="#"><h1 class="text-center"><b>Valori pentru atribute/functii (%, px, em, rem, vw, vh):</b></h1></a><br>
+<ul>
+<li><b>%</b> - procent (atentie la folosirea acestei valori pentru grid si flex)</li>
+<li><b>px</b>- pixels </li>
+<li><b>em</b>- se va mentiona un numar in fata acestuia care va reprezenta de cate ori se va aplica valoarea – in cazul fontului se va marii dimensiunea acestuia de atatea ori.</li>
+<li><b>rem</b>- numarul din fata acestuia va stabili de cate ori se mareste atributul fata de dimensiunea folosita initial – dimensiunea elementului de baza -  (in cazul fontului, fata de dimensiunea folosita in fisierul html)</li>
+<li><b>vw </b>- valoare de 1% din latimea (weight) viewport-ului – adica a ferestre browserului</li>
+<li><b>vh</b> - valoare de 1% din inaltimea (height) viewport-ului – adica a ferestre browserului</li>
+</ul> <br>
+
+<a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank"><h1 class="text-center"><b>Tabele (GRID) in Bootstrap </b></h1></a>
+<br>
+Este important de mentionat ca linia in Bootstrap are 12 coloane / spatii.<br>
+Fiecare coloana poate fi dimensionata in functie de necesitati, pana la maximul de 12 buc pe linii. Acest lucru se face prin mentionarea nr de spatii pe care dorim sa le ocupa coloana. Astfel daca dorim ca fiecare coloana sa aibe aceeasi dimensiune, va trebui sa impartim nr acestora la 12. Orice depaseste 12 spatii, va fi afisat in linia urmatoare.<br>
+Ex: Mai jos avem codul pentru un tabel cu 2 randuri si 2 coloane cu aceleasi dimenini (6 spatii fiecare).<br> Vezi mai jos…<br>
+
+    <div class="container text-center">
+    	<div class="row">
+    		<div class="col col-sm-6">coloana1</div>
+    		<div class="col col-sm-6">coloana2</div>
+    		<div class="w-100"></div>
+    		<div class="col col-sm-6">coloana3</div>
+    		<div class="col col-sm-6">coloana4 </div>
+  		</div>
+  	</div>	
+  	<br>
+  	    <*div class="container text-center"><br>
+    	<*div class="row"><br>
+    		<*div class="col col-sm-6">coloana1<*/div><br>
+    		<*div class="col col-sm-6">coloana2<*/div><br>
+    		<*div class="w-100"><*/div><br>
+    		<*div class="col col-sm-6">coloana3<*/div><br>
+    		<*div class="col col-sm-6">coloana4 <*/div><br>
+  		<*/div><br>
+  	<*/div>	<br>
+  	<br>
+  	<b>Note:</b> the * sign is used only to see the code that makes the colums. If it's removed then the column should be created. 
+  	<br>
+
+IMPORTANT: 
+Exista 6 tipuri de coduri pentru aceste coloane:
+<ul>
+	<li> xs <576px  - ex: container max width: none/auto class prefix .col-xs-</li>
+	<li> sm ≥576px  - ex: container max width: 540px class prefix .col-sm-</li>
+	<li> md ≥768px  - ex: container max width: 720px class prefix .col-md-</li>
+	<li> lg ≥992px  - ex: container max width: 960px class prefix .col-lg-</li>
+	<li> xl ≥1200px - ex: container max width: 1140px class prefix .col-xl-</li>
+	<li> xxl ≥1400px- ex: container max width: 1320px class prefix .col-xll-</li>
+</ul>
+
+
+Daca dorim ca modul de afisare a acestora sa se modifice in functie de marimea ecranului <b>(adica codul sa fie responsive)</b> pe care este vizualizat site-ul, atunci in cadrul clasei se vor mentiona mai multe tipuri de coloane.</b><br>
+<b> Ex:     <*div class="col col-sm-6 col-md-12 col-xl-3" >coloana4 <*/div> </b><br>
+Iar coloanele vor fi afisate la modificare rezolutiei paginii. <br>
+
+
+
+
+<a href="https://www.w3schools.com/css/css3_gradients.asp" target="_blank"><h1 class="text-center"><b>CSS Gradients </b></h1></a>
+<br>
+
+<b>CSS Gradients</b> permite sa combini una sau mai multe culori, existand trei tipuri de:<br>
+<b>•	Linear Gradients </b>(goes down/up/left/right/diagonally)<br>
+<b>•	Radial Gradients </b>(defined by their center)<br>
+<b>•	Conic Gradients</b> (rotated around a center point)<br><br>
+<b>CSS Linear Gradients</b><br>
+To create a linear gradient you must define at least two color stops. Color stops are the colors you want to render smooth transitions among. You can also set a starting point and a direction (or an angle) along with the gradient effect.<br>
+Syntax: <br>
+<b>-	Direction – top to bottom (by default)</b><br>
+background-image: linear-gradient(direction, color-stop1, color-stop2, ...);<br>
+
+<b>-	Direction - Left to Right</b><br>
+background-image: linear-gradient(to right, red , yellow);<br>
+<b>-	Direction – Diagonal</b><br>
+You can make a gradient diagonally by specifying both the horizontal and vertical starting position<br>s.
+The following example shows a linear gradient that starts at top left (and goes to bottom right). It starts red, transitioning to yellow:<br>
+<b> background-image:</b> linear-gradient(to bottom right, red, yellow);<br>
+<b>-	Using Angles</b><br>
+If you want more control over the direction of the gradient, you can define an angle, instead of the predefined directions (to bottom, to top, to right, to left, to bottom right, etc.). A value of 0deg is equivalent to "to top". A value of 90deg is equivalent to "to right". A value of 180deg is equivalent to "to bottom".<br>
+background-image: linear-gradient(angle, color-stop1, color-stop2);<br>
+background-image: linear-gradient(180deg, red, yellow);<br>
+<b>-	Using Transparency</b><br>
+CSS gradients also support transparency, which can be used to create fading effects.<br>
+To add transparency, we use the rgba() function to define the color stops. The last parameter in the rgba() function can be a value from 0 to 1, and it defines the transparency of the color: 0 indicates full transparency, 1 indicates full color (no transparency).<br>
+The following example shows a linear gradient that starts from the left. It starts fully transparent, transitioning to full color red:<br>
+<b> background-image:</b> linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));<br>
+<b>-	Repeating a linear-gradient</b><br>
+background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+<br><br>
+
+<b>CSS Conic Gradients:</b> <a href=" https://www.w3schools.com/css/css3_gradients_conic.asp">See link here...</a> <br>
+<br>
+<b>CSS Radial Gradients:</b> <a href="https://www.w3schools.com/css/css3_gradients_radial.asp">See link here...</a> <br>
+
+
+
+<a href="#"><h1 class="text-center"><b>Imagine de fundal (Background Image)</b></h1></a>
+<br>	
+The best way for positioning a background image is to insert this cod in CSS html:<br>
+Html { <br>
+ background: url(img.jpg) no-repeat center center fixed; <br>
+  -webkit-background-size: cover;<br>
+  -moz-background-size: cover;<br>
+  -o-background-size: cover;<br>
+  background-size: cover;<br>
+}<br>
+The image will stretch and flex as the viewport (screen size) change, so will have a optimize background image, responsive to all the devices. 
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* de ce nu se modifica dimensiunea imaginilor in momentul in care mentionez clasa (.imagini)
+in fisierul CSS, ci doar in momentul in care selectez img */
+
+body{
+	 margin: 0px;
+}
+
+.container { 
+display: flex; 
+flex-wrap: wrap;
+justify-content: center;
+
+}
+
+img
+{
+	width: 450px;
+	height: 300px;
+	margin: 10px;
+	transition: all 1s;
+
+}
+img:hover {
+	transform: scale(1.1);
+}
+
+h1 
+{
+font-family: Arial;
+font-size: 2em;
+border-bottom: 2px solid green;
+text-align: center;
+text-transform: uppercase;
+}
+
+footer{
+	margin-top: 200px;
+	text-align: center;
+}
+
+p{
+	text-align: center;
+	text-Transform: uppercase;
+	border-color: black;
+}
+h3 {
+	font-family: Arial;
+	text-align: center;
+}

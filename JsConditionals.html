@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JsConditionals</title>
+</head>
+<body>
+
+	<h1> JsConditionals</h1>
+	<div class ="exerciseAll">
+		<div class ="ex exercise1">
+
+	<h3>Exercise 1</h3>
+
+	<p>
+
+<b>Make a keyless car!</b><br>.
+This car will only let you drive if you are over 18. Make it do the following:<br>
+
+
+using prompt() and alert(), ask a user for their age.<br><br>
+ IF they say they are below 18, respond with:<br>
+ "Sorry, you are too young to drive this car. Powering off"<br>
+
+ IF they say they are 18, respond with:<br>
+ "Congratulations on your first year of driving. Enjoy the ride!"<br><br>
+
+ IF they say they are over 18, respond with:<br>
+ "Powering On. Enjoy the ride!"<br><br>
+</div>
+
+-------------------------------------------------
+<div class ="ex exercise2">
+
+	<h3>Exercise 3</h3>
+
+<b> Make a keyless car EVEN BETTER!</b><br><br>
+We are improving our car from previous exercise now.<br>
+Solutions to future exercises will be in the .js file (meaning Javascript file) from now on.<br><br>
+
+var age = prompt("What is your age?");<br><br>
+
+if (Number(age) < 18) {<br>
+	alert("Sorry, you are too yound to drive this car. Powering off");<br>
+} else if (Number(age) > 18) {<br>
+	alert("Powering On. Enjoy the ride!");<br>
+} else if (Number(age) === 18) {<br>
+	alert("Congratulations on your first year of driving. Enjoy the ride!");<br>
+}<br><br>
+
+1. Make the above code have a function called checkDriverAge(). Whenever you call this function, you will get prompted for age. Use Function Declaration to create this function.<br><br>
+<b>Notice</b> the benefit in having checkDriverAge() instead of copying and pasting the function everytime?<br><br>
+
+2.Create another function that does the same thing, called checkDriverAge2() using Function Expression.<br><br>
+
+<b>BONUS:</b> Instead of using the prompt. Now, only use console.log and make the checkDriverAge() function accept an argument of age, so that if you enter:<br><br>
+checkDriverAge(92);<br>
+it returns "Powering On. Enjoy the ride!"<br>
+
+</div>
+
+
+-----------------------------------------------
+<div class ="ex exercise3">
+	<h3>Exercise 3</h3>
+1. change this function into a <b>ternary</b> and assign it to variable called experiencePoints<br><br>
+function experiencePoints() {<br>
+    if (winBattle()) {<br>
+        return 10;<br>
+    } else {<br>
+        return 1;<br>
+    }<br>
+}<br><br>
+
+
+var experiencePoints = winBattle() ? "10" : "1";<br><br>
+
+Using this function, answer the questions below:<br><br>
+function moveCommand(direction) {<br>
+    var whatHappens;<br>
+    switch (direction) {<br>
+        case "forward":<br>
+            break;<br>
+            whatHappens = "you encounter a monster";<br>
+        case "back":<br>
+            whatHappens = "you arrived home";<br>
+            break;<br>
+            break;<br>
+        case "right":<br>
+            return whatHappens = "you found a river";<br>
+            break;<br>
+        case "left":<br>
+            break;<br>
+            whatHappens = "you run into a troll";<br>
+            break;<br>
+        default:<br>
+            whatHappens = "please enter a valid direction";<br>
+    }<br>
+    return whatHappens;<br>
+}<br><br>
+
+2. return value when moveCommand("forward");<br><br>
+
+3. return value when moveCommand("back");<br><br>
+
+4. return value when moveCommand("right");<br><br>
+
+5. return value when moveCommand("left");<br><br>
+
+<b>BONUS:</b> practice makes perfect. Go and write your own switch function. It takes time to get used to the syntax!<br><br>
+</div>
+
+<div class ="ex exercise3">
+
+<h3>Exercise 3:</h3>
+<h3>Advance Control Flow</h3>
+<h4>Terwary operator & Switch</h4>
+the form of terwary is:<br><br>
+// condition ? expr1 : expr2; <br><br>
+
+function isUserValid (boolian) {<br>
+return (boolian);<br>
+}<br>
+var answer = isUserValid(true) ? "You may enter your account"  : "Access Denided";<br><br>
+
+as we see: we create the function isUserValid with a boolian, that return the boolian 
+ and we created the answer variable that is equal with the cndition: if the boolian function isUserValid is true than 
+it returns the first expression, if we change to false, than it'll returns the second expression. <br><br>
+
+var automatedAnswer = "Your acc no is " + ( isUserValid(true) ? "12345" : "not available");<br><br>
+
+in the upper case we created the automatedAnswer variable with is equal with a text + the Terwary<br>
+so, if the boolian in the var expression is true it will return firs expression, else second one<br><br>
+
+function condition (){<br>
+	if (isUservalid(true)) {<br>
+		return "you may enter"<br>
+	}<br>
+	else {<br>
+		return "Access denided"<br>
+	}<br>
+}<br><br>
+the upper syntax is same with the automatedAnswer... the results will be the same<br><br>
+</div>
+
+<div class ="ex exercise4">
+
+<h3>Exercise 4</h3>
+<h3>Switch - Condition </h3>
+
+function moveCommand(direction) {<br>
+	var whatHappens;<br>
+	switch (direction) {<br>
+	case "forward":<br>
+		whatHappens = "you encounter a monster";<br>
+		break;<br>
+	case "back":<br>
+		whatHappens = "you arrived home";<br>
+		break;<br>
+	case "right":<br>
+		whatHappens = "you found a river";<br>
+		break;<br>
+	case "left":<br>
+		whatHappens = "you run into a troll";<br>
+		break;<br>
+		default:<br>
+		whatHappens = "please enter a valid direction";<br>
+	}<br>
+	return whatHappens;<br>
+}<br><br>
+what does mean the upper code: <br>(1) create variable whatHappens than <br>(2) check whatever the condition is / variable is - in our case
+the direction and <br>(3) in case the direction is goes forward, than print whatHappens (in our 
+case, print: "you encounter a monster")<br> so the function will check all the cases wrote, and if none is done/mathces, than will return
+the defaul message <br>
+the break is saying that if the condition is acomplished than will exit the function and return what we mention as a return<br><br>
+
+		</div>
+	</div>
+
+</body>
+</html>

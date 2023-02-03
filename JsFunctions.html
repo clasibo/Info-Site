@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS_Functions</title>
+</head>
+<body>
+
+<h1> ------------------------JS_Functions-----------------------</h1>
+<p>
+// For all of these, what is the value of a when the function gets called with the alert()<br><br>
+// #1<br>
+function q1() {<br>
+    var a = 5;<br>
+    if(a > 1) {<br>
+        a = 3;<br><br>
+    }<br>
+    alert(a);<br>
+} <br>
+// 3<br><br>
+
+//#2<br>
+var a = 0;<br>
+function q2() {<br>
+    a = 5;<br>
+}<br>
+// 5<br><br>
+
+function q22() {<br>
+    alert(a);<br>
+}<br><br>
+// error - a is not definited - if it was not in the same code with the upper function<br>
+// if we'll take in consideration that this function is continuing the below function, than the value will be 5<br><br>
+
+
+//#3<br>
+function q3() {<br>
+    window.a = "hello";<br>
+}<br>
+//a = hello<br><br>
+
+
+function q32() {<br>
+    alert(a);<br>
+}<br>
+//hello<br><br>
+
+//#4<br>
+var a = 1;<br>
+function q4() {<br>
+    var a = "test";<br>
+    alert(a);<br>
+}<br>
+// alert = test and a will be 1<br><br>
+
+//#5<br>
+var a = 2;<br>
+if (true) {<br>
+    var a = 5;<br>
+    alert(a);<br>
+}<br>
+alert(a);<br><br>
+</p>
+
+<h2>------------------------Exercise---------------------------------------</h2>
+<p>
+//Solve these problems:<br><br>
+
+//#1 Create a one line function that adds adds two parameters<br><br>
+
+const sum = (a, b) => a + b<br><br>
+
+//Closure: What does the last line return?<br><br>
+const addTo = x => y => x + y<br>
+var addToTen = addTo(10)<br>
+addToTen(3) // return 13<br><br>
+
+const addTo = (x) => (y) => x + y;<br>
+const addToTen = addTo(10);<br>
+addToTen(3);<br><br>
+
+
+//Currying: What does the last line return?<br><br>
+const sum = (a, b) => a + b;<br>
+const curriedSum = (a) => (b) => a + b;<br>
+curriedSum(30)(1); // returns 31<br><br>
+
+
+//Currying: What does the last line return?<br><br>
+const sum = (a, b) => a + b;<br>
+const curriedSum = (a) => (b) => a + b;<br>
+const add5 = curriedSum(5);<br>
+add5(12); // returns 17<br><br>
+
+//Composing: What does the last line return?<br>
+const compose = (f, g) => (a) => f(g(a));<br>
+const add1 = (num) => num + 1;<br>
+const add5 = (num) => num + 5;<br>
+compose(add1, add5)(10) // returns 16<br><br>
+
+//What are the two elements of a pure function?<br>
+//1. Deterministic --> always produces the same results given the same inputs<br>
+//2. No Side Effects -->  It does not depend on any state, or data, change during a program’s execution. <br>
+//It must only depend on its input elements.<br>
+</p>
+
+
+<h2>------------------------Exercise---------------------------------------</h2>
+<p>
+// Complete the below questions using this array:<br><br>
+const array = [<br>
+  {<br>
+    username: "john",<br>
+    team: "red",<br>
+    score: 5,<br>
+    items: ["ball", "book", "pen"]<br>
+  },<br><br>
+  {<br>
+    username: "becky",<br>
+    team: "blue",<br>
+    score: 10,<br>
+    items: ["tape", "backpack", "pen"]<br>
+  },<br><br>
+  {<br>
+    username: "susy",<br>
+    team: "red",<br>
+    score: 55,<br>
+    items: ["ball", "eraser", "pen"]<br>
+  },<br><br>
+  {<br>
+    username: "tyson",<br>
+    team: "green",<br>
+    score: 1,<br>
+    items: ["book", "pen"]<br>
+  },<br>
+
+];<br><br>
+
+//Create an array using forEach that has all the usernames with a "!" to each of the usernames<br><br>
+
+
+let newArray = []<br>
+array.forEach(user => {<br>
+  let { username } = user;<br>
+  username = username + "!";<br>
+  newArray.push(username);<br>
+})<br>
+console.log(newArray);<br><br>
+
+
+
+//Create an array using map that has all the usernames with a "? to each of the usernames<br><br>
+
+const mapArray = array.map(user => {<br>
+  let { username } = user;<br>
+  return username + "?";<br>
+})<br><br>
+
+
+
+
+//Filter the array to only include users who are on team: red<br><br>
+
+const filterArray = array.filter(user => {<br>
+  return user.team === "red";<br>
+})<br>
+console.log(filterArray);<br><br>
+
+
+//Find out the total score of all users using reduce<br><br>
+
+const total = array.reduce((acc, user) => {<br>
+  return acc + user.score<br>
+}, 0);<br><br>
+
+// (1), what is the value of i?<br>
+// (2), Make this map function pure:<br><br>
+const arrayNum = [1, 2, 4, 5, 8, 9];<br><br>
+const newArray = arrayNum.map((num, i) => {<br>
+    console.log(num, i);<br>
+    alert(num);<br>
+    return num * 2;<br>
+})<br><br>
+const arrayNum = [1, 2, 4, 5, 8, 9];<br>
+const newArray = arrayNum.map((num, i) => {<br>
+  return num * 2;<br>
+});<br><br>
+
+//BONUS: create a new list with all user information, but add "!" to the end of each items they own.<br><br>
+
+const newList = array.map(user => {<br>
+  user.items = user.items.map(item => {<br>
+    return item + "!"<br>
+  });<br>
+  return user;<br>
+});<br>
+console.log(newList);<br><br>
+
+---------------------------------------------------<br><br>
+//Evaluate these:<br><br>
+//#1<br>
+[2] === [2] // false<br>
+{} === {} // false<br><br>
+
+//#2 what is the value of property a for each object.<br><br>
+const object1 = { a: 5 }; //4<br>
+const object2 = object1; //4<br>
+const object3 = object2; //4<br>
+const object4 = { a: 5}; //5<br>
+object1.a = 4;<br><br>
+
+
+//#3 create two classes: an Animal class and a Mamal class. <br><br>
+// create a cow that accepts a name, type and color and has a sound method that moo's her name, type and color. <br><br>
+class Animal {<br>
+    constructor(name, type, color) {<br>
+        this.name = name;<br>
+        this.color = color;<br>
+        this.type = type;<br>
+    }<br>
+}<br><br>
+class Mamal extends Animal {<br>
+    constructor(name, type, color) {<br>
+        super(name, type, color)<br>
+    }<br>
+    sound() {<br>
+        console.log(`Moooo I'm ${this.name} and I'm a ${this.color} ${this.type}`);<br>
+    }<br>
+}<br><br>
+
+const cow = new Mamal('Shelly', 'cow', 'brown');<br><br>
+
+
+----------------------------------------------<br><br>
+function first() {<br>
+    var greet = "Hi";<br>
+    function second() {<br>
+        alert(greet);<br>
+    }<br>
+    return second;<br>
+}<br><br>
+
+var newFunc = first();<br>
+newFunc();<br><br>
+
+// Modern JavaScript<br>
+// we'll modify the upper code:<br><br>
+
+const first = () => {<br>
+    const greet = 'Hi';<br>
+    const second = () => {<br>
+        alert(greet);<br>
+    }<br>
+    return second;<br>
+}<br>
+const newFunc = first();<br>
+newFunc();<br><br>
+// Everytime we execute the first function, the greet parameter will remain constant. But remeber the scope, in this case the 
+// greet parameter is inside the function, so is a child scope. And if we want to change it outside the function, we cand do it 
+// without being a conflict regarding the variable. When we run the function, greet will have the function paramenter, so will
+// print the alert "Hi". But if we assign a new valur of the const greet outside the function (in the main scope), if we
+// ask the valur of the greet, will recive the main scope value.<br><br>
+// IMPORTANT: in this case, if the const greet is used in other functions, or in the main scope, if we run the first function, we
+// will always receive the paramentern inside named inside the function so will never be a variable/name conflict<br><br>
+</p>
+
+<h2>--------------------------------Closures -------------------------</h2>
+
+<p>
+
+//a function ran, the function executed. it is never going to execute again. But is going to remember that there are references 
+// to those variables. So the child scope, always has access to the parent scope. In our case, the child scope is the second function<br>
+// that is going to be ran by the newFunc(); that is saying the alert greet without knowing that variable, because is in the 
+// first function. We can see the const newFunc = first() equal with <br>
+// const newFunc = const second = () => {alert(greet);} return second;<br>
+// so the function will return second without knowing the variable. But the sistem will always keep in mind the parent scope
+// which is the const greet = 'hi' from the first function.<br><br>
+//REMEBER: child scope will always have access to the parent scope, but the parent scope will never have access to the child scope
+// so... if we insert a varible in the second function, the first function will not have access to it because (inside the first f-tion)<br>
+// the second function is child scope<br><br>
+</p>
+
+<h2>----------------------------Currying ------------------</h2>
+
+<p>
+
+// is the process of converting a function that takes multiply arguments into a function that takes the argument one by one<br><br>
+
+const multiply = (a, b) => a * b;<br><br>
+//currying:<br><br>
+const curriedMultiply = (a) => (b) => a * b;<br>
+curriedMultiply(3);<br><br>
+// if we run this function like this, will receive (b) => a * b. So if we want to obtain the result of a * b, we have to 
+// insert both functions, like this: curriedMultiply(3)(6); and will obtain 18. So this function meains that if we assign 
+// a value of (a) we call the function (b), but will get the final result, only if we name also the (b) function<br><br>
+// This function is usefull if we have to assig a value of a and make another function for the (b). Like this:<br><br>
+// const curriedMultiply = (a) => (b) => a * b;<br>
+// const multiplyby5 = curriedMultiply(5);<br>
+// so if we call function like this multiplyBy5(6), will obtain the result of 30;<br><br>
+</p>
+
+<h2>-----------------------------Compose -----------------------</h2>
+<p>
+// is the act of putting two functions togeter to form a third function, where the output of ones function is the input 
+// of the other<br><br>
+
+const compose = (f, g) => (a) => f(g(a));<br><br>
+// so will read this function backwords and we'll see that it says: if we put a paramenter in function (a) will execute
+// the g(a) function, and if we put a paramenter in g(a) function will execute the f(g(a)) function
+// so will assig a sum parameter to function f and g and a absolute value to function a ... like this:<br><br>
+compose(sum, sum)(5);<br>
+// but to run the function, we have to declare the sum. so will declare it as a const and assign a function on it:<br>
+const sum = (num) => num +1<br>
+// so we sad that sum is a function that contains a number, and will retun that number + 1<br>
+// the correct code will be:<br><br>
+// 1. make the compose function: const compose = (f, g) => (a) => f(g(a));<br>
+// 2. declare a const function: const sum = (num) => num +1<br>
+// 3. assign the compose function the value of sum (f and g is equal to sum) and the value of 5 to (a): compose(sum, sum)(5);
+// the console will return 7 because first will assign the valut of 5 to a, then it will do the a +1, than the a +1 + 1, as
+// we made the return of the compose function: f(g(a));<br><br>
+</p>
+
+<h2>-------------- Avoiding Side Effects, functional purity ------------------</h2>
+<p>
+
+// it is important to create functions that minimise side effects. So we we create a function it is important that always 
+// that function to return a certen value, and do not interface with the main scope. ex: <br><br>
+var a = 1;<br>
+fucntion b() {<br>
+    var a = 2;<br>
+}<br><br>
+//  when we will run this function we will change a outside variable, so this will be a side effect because it will interfece 
+// with a variable that is outside of the function, a variable that can be used in other ways. <br>
+// we want to think the function that it own word, that change only it's word<br>
+//By evoiding Side Effects we make DETERMINISTIC - in programing language and it means that no matter what, if my inputs go 
+// through the function, this will return a value and will be always the same.<br><br>
+
+
+
+--------------------------------------------------------------------------------------------<br>
+
+const array = [1, 2, 10, 16];<br><br>
+
+const double =[];<br><br>
+
+const newArray = array.forEach((num) => {<br>
+    double.push(num * 2);<br>
+});<br>
+console.log(double);<br><br>
+
+// upper we created an array with the const array. After we defined the newArray as it is a function in witch we introduce 
+// for each no it's equivalent x 2. For this new array we have to make new array const, and we made it as follow: const double =[];
+// to return the new array with the no x 2, we console log the (double)<br><br>
+</p>
+
+<h2>---------------------------------map, filter, reduce-----------------------</h2>
+<p>
+// the most important methodes used in JS. <br><br>
+</p>
+<h2>--------------------------------map ----------------------------------</h2>
+<p>
+
+const mapArray = array.map((num) => {<br>
+    return num * 2;<br>
+})<br>
+console.log(mapArray);<br><br>
+
+// the diference between map and forEach is that forEach loops the variable (array in our case: array.forEach) and does whatever 
+// the function says vs. array.map that says: look in the array for number and return those number * 2. So the rationament is:
+// the map check the num in the array and find the first one, makes the return and put the value intro the mapArray. and so on.
+// forEach loops and do what we call it to do inside the function. <br>
+// map loops, do the function and modify the const<br>
+// in other way, with forEach we can get a bunch of side effects: we can console log, we can alert and so on, and we are not return 
+// a certan value. With map we return a certan value because map loops, do the function, and modifie the variable/const.<br><br>
+
+//to clean the upper code:<br>
+//const array = [1, 2, 10, 16];<br>
+//const mapArray = array.map(num => num * 2); // the upper syntax with a clean code.<br>
+//console.log(mapArray);<br><br>
+
+</p>
+
+<h2> ------------------------- Filter ----------------------------</h2>
+<p>
+const array = [1, 2, 10, 16];<br>
+const filterArray = array.filter(num => {<br>
+    return num > 5;<br>
+}); <br><br>
+// the shorthand of this function is:<br><br> 
+const filterArray = array.filter(num => num >5);<br>
+// so if the condition (num > 5 in our case) is true than the result will return and populate the filterArray with 10 and 16
+// if it's false will not return / populate anything<br><br>
+console.log(filterArray);<br>
+// it means: filter this number's array one by one, and return the no that are greater than 5 in the new array: filterArray<br>
+</p>
+
+<h2>------------------------------- reduce -----------------------</h2>
+<p>
+const array = [1, 2, 10, 16];<br>
+const reduceArray = array.reduce((accumulator, num) => {<br>
+    return accumulator + num<br>
+},0);<br><br>
+// accumulator - is something where we can store the information that happens in the body of the function<br>
+// in this function, after } we have to introduce the value of the accumulator. If we put 0 it's value will be 0<br>
+// looking at this function, the accumulator (that is 0 as we declareted) will begin to acumulate and it will do 0 (it's value) +
+//1 = 1 + 2 = 3 + 10 = 13 + 16 = 29. so if we console.log(reduceArray) will obtain 29<br>
+// sometimes the accumulator syntax can be find like acc. <br><br>
+
+-------------------------------------------------<br>
+</p>
+<h2>------------------------------- scope -----------------------</h2>
+<p>
+
+<b>//Root scope (window) - parent</b><br><br>
+var fun = 5;<br><br>
+
+function firstFuntion(){<br>
+    //child scope<br>
+    var fun ="aaaaa";<br>
+    console.log(1, fun);<br>
+}<br><br>
+function secondFuntion(){<br>
+    //child scope<br>
+    var fun ="bbbbb";<br>
+    console.log(2, fun);<br>
+}<br><br>
+function thirdFuntion(){<br>
+    //child scope<br>
+    fun ="ccccc";<br>
+    console.log(3, fun);<br>
+}<br><br>
+
+console.log(fun);<br>
+firstFuntion();<br>
+secondFuntion();<br>
+thirdFuntion();<br>
+console.log(fun);<br>
+secondFuntion();<br>
+console.log(fun);<br><br>
+
+// in this exercise we made the following: first we made a fun variable and declare it as it's 5, then we made three function  
+// first two with a variable fun assigned other values and a third with a absolute fun declaration. So when we run those functions
+// the valur on fun will be change according ith the assign value in the third function (absolute value NOT as variable)
+// if we run the second function, we will obtain the declared console.log value, but if we console.log(fun); the value we'll obtain
+// is the valur declarated as absolute valur in the third function. 
+// so, the child scope will replace the valur of the variable declareted in the parent scope.<br><br>
+
+<h3>Arrow function</h3>
+function add(a, b) {<br>
+    return a + b;<br>
+}<br><br>
+
+the below funtion is an <b>arrow function:</b><br><br>
+const add2 = (a, b) => a + b;<br><br>
+
+function add(a, b) {<br>
+    return a + b;<br>
+}<br><br>
+const add2 = (a, b) => a + b;<br>
+undefined<br><br>
+
+add(5, 7);<br>
+12<br><br>
+add2(5, 7);<br>
+12 <br><br>
+
+</p>
+
+<h2>-------------------------------------ES7 -------------------------</h2>
+
+<h3>-------------------------------------includes ----------------------</h3>
+<p>
+const color = ['blue', 'white', 'grey'];<br>
+color.includes('blue'); - we'll receive 'true'<br><br>
+//if we forget to put '' we'll recive from the console that the item/value is not definited<br><br>
+</p>
+<h3>-----------------------------exponential operator -------------------------</h3>
+<p>
+const square = (x) => x**2;<br>
+//with whis function we want to make x to the power of 2. So when well call the function like this square(2), we ask for
+// 2*2 and receive it's result.<br>
+// if we assig a value for x, than when we'll run the function calling the x like this: square(x); will receive the result 
+//of x value * x value. <br><br>
+
+const cube = (y) => y**3;<br>
+</p>
+
+<h3>------------------------------------ Exercise:--------------------------------</h3>
+<p>
+// Solve the below problems:<br><br>
+
+// #1) Check if this array includes the name "John".<br>
+const dragons = ['Tim', 'Johnathan', 'Sandy', 'Sarah'];<br><br>
+
+//Solution:<br><br>
+
+dragons.includes('John'); // receive: false<br><br>
+
+// #2) Check if this array includes any name that has "John" inside of it. If it does, return that<br>
+// name or names in an array.<br>
+const dragons = ['Tim', 'Johnathan', 'Sandy', 'Sarah'];<br><br>
+
+//Solution:<br><br>
+
+dragons.filter(name => name.includes('John')) // ['Johnathan']<br><br>
+
+
+// #3) Create a function that calculates the power of 100 of a number entered as a parameter<br><br>
+
+const power100 = (no) => no**100;<br><br>
+
+
+// #4) Useing your function from #3, put in the paramter 10000. What is the result?<br>
+// Research for yourself why you get this result<br><br>
+power100(10000) // Infinity<br><br>
+</p>
+
+<h2>--------------------------------------------ES8 ----------------------------------</h2>
+
+<h3>--------new function: padStart and padEnd-----------</h3>
+<p>
+// function used for aligning the characters<br><br>
+const pad = "JavaScript";<br>
+pad.padStart();<br>
+pad.padEnd();<br><br>
+// if we do padStart(20); we will receive "          JavaScript" => 20 characters <br>
+//in the line (10 spaces + 10 characters form JavaScript word)<br><br>
+
+// we can interogate in console whatever word we want + the function padStart(and the no of characters) / padEnd (no);<br><br>
+</p>
+
+<h3>-----------------Trailing commas in function's parameter lists and calls --------</h3>
+<p>
+
+const openItem = (a, b, c, d,) => { console.log(a); }// at the end we have an opened comma<br><br>
+
+openItem(1,2,3,4,);// the opened comma at the end let you add more element insde the item.<br><br>
+
+//---------------------------------------------------------------<br><br>
+</p>
+
+
+<h2>----------------------------- - Object.keys - Object.entries - Object.values - ----------------------------</h2>
+<p>
+// inside an object we cannot use map, filter or reduce those works only on arrays.<br><br>
+
+//if we do Object.keys(obj). the object will work like an array and will check the object one by one array. <br>
+// the object will be like an array, excent it have proprieties and values<br><br>
+
+let obj = {<br>
+    username0: '000',<br>
+    username1: '111',<br>
+    username2: '222'<br><br><br>
+}<br><br>
+Object.keys(obj).forEach((key, index) => {<br>
+    console.log(key, obj[key]); // we receive all the username (from 0 to 2) and their values<br>
+})<br><br>
+
+Object.values(obj).forEach((value) => {<br>
+    console.log(value); // we obtaain the value (000 , 111, 222) of each propiety <br>
+});<br><br>
+
+Object.entries(obj).forEach((value) => {<br>
+    console.log(value); // we obtaain the value (000 , 111, 222) of each propiety <br>
+});<br><br>
+// we obtain 3 arrays that in which we can use map, filter, reduce and so on. <br>
+/* 
+ (2)['username0', '000']<br>
+ (2)['username1', '111']<br>
+ (2)['username2', '222']<br>
+ undefined<br><br>
+*/
+
+Object.entries(obj).map(value =>{<br>
+    return value[1] + value [0].replace('username', '');<br>
+})<br><br>
+// in the upper functon we said: <br>
+/* Object.entries(obj) - transform the inside proprieties of the object in strings so that we can do map<br><br>
+Object.entries(obj).map(value - look for the values inside the strings <br><br>
+Object.entries(obj).map(value =>{<br>
+    return value[1] + value [0].replace('username', ''); - and return the value[1] which is the value of the each proprieties <br>
+    (000, 111, 222 - in our exemple) and add the value[0] which is the username1...2...3 in our case, but replace the text of the<br> 
+    username1 with none = that means to transform the text username1 in 1 (eliminate username fomr the text username1)<br>
+})<br>
+
+</p>
+
+
+<h3>----------------------------- Exercise --------------------</h3>
+
+<p>
+
+// Solve the below problems:<br><br>
+
+// #1) Line up the Turtle and the Rabbit at the start line:<br>
+const startLine = '     ||<- Start line';<br>
+let turtle = '🐢';<br>
+let rabbit = '🐇';<br><br>
+
+
+turtle = turtle.padStart(8);<br>
+rabbit = rabbit.padStart(8);<br>
+console.log(startLine);<br>
+console.log(turtle);<br>
+console.log(rabbit);<br><br>
+
+// it should look like this:<br>
+'     ||<- Start line'<br>
+'       🐢'<br>
+'       🐇'<br><br>
+
+// when you do:<br>
+console.log(startLine);<br>
+console.log(turtle);<br>
+console.log(rabbit);<br><br>
+
+//---Solution:<br><br>
+const startLine = '     ||<- Start line';<br>
+let turtle = '🐢';<br>
+let rabbit = '🐇';<br><br>
+turtle = turtle.padStart(8);<br>
+rabbit = rabbit.padStart(8);<br>
+console.log(startLine);<br>
+console.log(turtle);<br>
+console.log(rabbit);<br><br>
+
+
+// #2) What happens when you run turtle.trim().padEnd(9, '=') on the turtle variable<br>
+// Read about what the second parameter does in padEnd and padStart<br>
+turtle = turtle.trim().padEnd(9, '=');<br>
+// the second parameter in the padEnd function fills up the space made by the function. Ex. the turtle's icon have 2 charachter <br>
+// so the = will fill the rest of 7 characters from th padEnd(9).<br><br>
+
+
+// #3) Get the below object to go from:<br>
+let obj = {<br>
+  my: 'name',<br>
+  is: 'Rudolf',<br>
+  the: 'raindeer'<br>
+}<br><br>
+// to this:<br>
+'my name is Rudolf the raindeer'<br><br>
+
+//1st variant:<br><br>
+const text = Object.entries(obj).map(value =>{<br>
+    return value[0] + ' ' + value[1] + ' ' });<br>
+text.join('');<br><br>
+
+//2nd variant:<br><br>
+
+Object.entries(obj).map(value => value.join(" ")).join(' ')<br><br>
+
+</p>
+
+<h2>------------------------- ES10 - ECMA Scipt 2019 ------------------------</h2>
+
+<h3>----------------------- .flat() --------------------</h3>
+<p>
+//.flat() is a method that we can use in arrays<br><br>
+
+const array = [1,2,3,4,5,]<br>
+array.flat();<br><br>
+
+const array2 = [1,[2,3],[4,5],];<br>
+array2.flat();<br><br>
+// if we have an array with multiple arrays in it, using flat will modify the inner of the array with a single array.<br>
+// ex: const array2 = [1,[2,3],[4,5],]; - this array has in it's inner other 2 arrays [2,3] and [4,5] is we check in console this 
+// will see it<br>
+// if we use .flat as following: array2.flat(); we'll receive a single array with all the proprieties mentioned (without the other
+//inner arrays.)- no more nested arrays anymore<br>
+// .flat work only in the forst line of the arrays --- meaning that in the main array will be another array that contains one more array<br>
+// the second array will be displayed. <br><br>
+/* Ex:<br><br>
+const array3 = [1,[2,3],[4,[5]]]; <br>
+array3.flat();<br>
+we'll receive:<br>
+(5)[1, 2, 3, 4, Array(1)]<br><br>
+
+// in that case we have to mention how deep should we modify the array inner - by inserting a no into flat() => flat(2);<br>
+// if we run <b>array.flat(2);</b> function, we'll receive a 'clean' array without anyother arrays inside<br><br>
+
+// another thing that .flat can do is cleaning the arrays for empty texts<br>
+/* ex.<br><br> 
+const entries = ['ana', 'alina', ,,,,,,,,, , 'iulia'];<br>
+entries.flat(20) - will clean the empty entries and send us a clean array only with the valid values (ana, alina, iulia)<br>
+</p>
+
+<h2>-------------------------flatMap()----------------------------------</h2>
+<p>
+
+const asignItem = ['item1', ['item2', ' item3'], 'item4', [[['item5']]], [['item6'], 'item7']];<br><br>
+
+const asignItem5 = asignItem.flatMap(item => item + ', ' + 'item5');<br><br>
+
+//as we made he function, it says: flat the array asignItem and map over the flat asignItem array for item and return a <br>
+//flat array with the item5 add to each item or inside array:<br><br>
+
+
+(5)['item1, item5', 'item2,item3, item5', 'item4, item5', 'item5, item5', 'item6,item7, item5']<br><br>
+
+</p>
+
+<h2>----------------------- trimStart() ------ trimEnd() ------------------------</h2>
+<p>
+// let's suppose that we have the following userEmail:<br><br>
+const userEmail = '             aaa@gmail.com';<br>
+const userEmail2 = 'bbb@gmail.com          ';<br><br>
+//to range the user email in the array we'll call the trim() function as to erase the empty spaces from the emails<br><br>
+console.log(userEmail.trimStart());<br>
+console.log(userEmail2.trimEnd());<br><br>
+</p>
+
+<h2>----------------------------------fromEntries ----------------------</h2>
+<p>
+
+//it transforms a list of key value pairs into an object<br>
+// imagine that we have user profiles that we receive but those iser profiles are gormatted in the wrong way. Let's say we 
+//have an array and inside of an array we have tje user profil of a game:<br><br>
+userProfiles =[['commanderTom', 23], ['derekZ', 40], ['hensel', 18]];<br><br>
+Object.fromEntries(userProfiles)<br><br>
+//by doing Object.fromEntries(userProfiles) we ask to transform the array userProfiles into an object that has keys and values
+// key = commanderTom / value = 23 (in our case)<br>
+// the Object.entries from ES8 is doing the opposite thing => trnasform the object into an array.<br><br>
+</p>
+
+<h2>---------------------try {<br>
+
+                        } catch {<br>
+
+                        }; --------------------------------</h2>
+<p>
+// this function allows us to try a piece of code and if are any errors, to catch them. Ex:<br><br>
+try {<br>
+    4 + 5 + a<br>
+} catch {<br>
+
+}; <br><br>
+//if we run this piece of code in the console, we get a response of 9. it does the exact same thing as writing 4 + 5, except 
+//by using the try/cach function, if are any errors print them in the cach box<br><br>
+try {<br>
+    bla + 5<br>
+} catch {<br>
+    console.log('messed up - error')<br>
+}<br><br>
+//the upper code if it's run we receive the catch message because the bla + 5 is wrong.<br>
+</p>
+
+<h3>------------------------------------- Exercise ------------------------------</h3>
+<p>
+// Solve the below questions:<br><br>
+
+// #1 Turn this array into a new array: [1,2,3,[4],[5]]. <br><br>
+
+1.<br>
+const array1 = [1,2,3,[4],[5]];<br>
+const newArray = array1.flat(); - it turns the array in one single array<br><br>
+
+//Bonus if you can do it on one line:<br><br>
+2.<br>
+const array2 = [[1],[2],[3],[[[4]]],[[[5]]]];<br>
+const newArray = array2.flat(3); - it turns the array in one single array<br><br>
+
+3.<br>
+const array2 = [[1],[2],[3],[[[4]]],[[[5]]]]; console.log(array2.flat(2)); - it turns the array in: [1,2,3,[4],[5]];<br><br>
+
+// #2 Turn this array into a new array: [ 'Hello young grasshopper!', 'you are', 'learning fast!' ]<br>
+const greeting = [["Hello", "young", "grasshopper!"], ["you", "are"], ["learning", "fast!"]];<br><br>
+<b>------Solution -------</b><br>
+console.log(greeting.flatMap(line => line.join(' ')));<br><br>
+
+
+
+//#3 Turn the greeting array above into a string: 'Hello young grasshopper you are learning fast!'<br><br>
+
+const greeting = [["Hello", "young", "grasshopper!"], ["you", "are"], ["learning", "fast!"]];<br>
+console.log(greeting.flatMap(x => x.join(' ')).join(' '))<br><br>
+
+
+
+//#4 Turn the trapped 3 number into: [3]<br>
+const trapped = [[[[[[[[[[[[[[[[[[[[[[[[[[3]]]]]]]]]]]]]]]]]]]]]]]]]];<br>
+console.log(trapped.flat(Infinity));<br><br>
+
+
+//#5 Clean up this email to have no whitespaces. Make the answer be in a single line (return a new string):<br><br>
+const userEmail3 = '     cannotfillemailformcorrectly@gmail.com  <br> '
+const userStart = userEmail3.trimStart();<br>
+const userEnd = userStart.trimEnd();<br>
+console.log(userEnd);<br><br>
+
+//Solution:<br><br>
+console.log(userEmail3.trimEnd().trimStart())<br><br>
+
+//#6 Turn the below users (value is their ID number) into an array: [ [ 'user1', 18273 ], [ 'user2', 92833 ], [ 'user3', 90315 ] ]<br>
+const users = { user1: 18273, user2: 92833, user3: 90315 }<br><br>
+
+const usersArray = Object.entries(users)<br><br>
+
+//#7 change the output array of the above to have the user's IDs multiplied by 2 -- Should output:[ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ]<br><br>
+
+1.<br>
+const users = { user1: 18273, user2: 92833, user3: 90315 };<br>
+const usersArray = Object.entries(users);<br>
+updatedUsersArray = usersArray.map((user) => [user[0], user[1] * 2]);<br><br>
+
+2.<br>
+const users = { user1: 18273, user2: 92833, user3: 90315 }<br>
+updatedUsersArray = Object.entries(users).map((user) => [user[0], user[1] * 2])<br><br>
+
+//#8 change the output array of question #7 back into an object with all the users IDs updated to their new version. Should output: { user1: 36546, user2: 185666, user3: 180630 }<br><br>
+
+var 1:<br>
+const outArray = [ [ 'user1', 36546 ], [ 'user2', 185666 ], [ 'user3', 180630 ] ];<br>
+const updatedUsers = Object.fromEntries(outArray);<br>
+console.log(updatedUsers);<br>
+---will optain { user1: 36546, user2: 185666, user3: 180630 }<br><br>
+
+var 2<br>
+const users = { user1: 18273, user2: 92833, user3: 90315 };<br>
+const usersArray = Object.entries(users); - will optain an array with 3 inner arrays<br>
+updatedUsersArray = usersArray.map((user) => [user[0], user[1] * 2]); - will optan the array with the value x 2<br>
+const updatedUsers = Object.fromEntries(updatedUsersArray) - will make an object from the last array<br>
+console.log(updatedUsers)<br>
+
+
+
+</body>
+</html>
+
+
+
+

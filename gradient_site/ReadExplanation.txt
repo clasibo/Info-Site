@@ -1,0 +1,74 @@
+/* What we need from this application is that to pick a color from the two colorItems that we created. if click on the colored items, 
+it should open a window with a RGB color selector.
+And idealy if I'll find a color that I like I would like to print in th bottom of the colorItems
+For the printing of the RGB, we want to put a piece of text below the h2 in witch will be the values of the selected RGB.
+in the HTML we insert a h3 section. So will selectect this section.  */
+
+var css = document.querySelector("h3");
+var color1 = document.querySelector(".color1");
+var color2 = document.querySelector(".color2");
+var body = document.getElementById("gradient")
+
+// if we want to change the background color, we can use the following syntax: 
+// body.style.background = "blue";
+
+/* What we want to do is to listen to an event about the user actions on the colorItems and print in the H3 sector.
+For inputs we would use the input event.*/
+
+// color1.addEventListener("input", function(){
+//	console.log(color1.value);
+//});
+
+//color2.addEventListener("input", function(){
+//	console.log(color2.value);
+//}); 
+//after we add the event (addEventListener) we'll see that, when the mouse is scrolling the colors of the colorItems, the 
+//console prints all the color on witch the mue is pointing
+
+// for changing the background-color in real-time, we will complete the function with the following syntax:
+//color1.addEventListener("input", function(){
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";
+//});
+
+//color1.addEventListener("input", function(){
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";
+//});
+
+//color2.addEventListener("input", function(){
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";
+//});
+
+// according to the DRY principle, we shoud create a fucntion that does the bosy.style.backgroun
+
+function setGradient(){
+	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";
+	css.textContent = body.style.background + ";";
+};
+
+// for printing the RGB selected for the linear-gradient on the two colorItems we inseted the css.textContent syntax in the 
+// setGradient() function 
+
+color1.addEventListener("input", setGradient);
+color2.addEventListener("input", setGradient);
+
+// beacause the input trigger is automaticaly done, we do not have to call tge functon setGradient with the ()
+
+// another way of calling the function, is in html file, in the input section we could write: oninput="setGradient()"
+/* <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Gradient Background</title>
+</head>
+<body id="gradient">
+	<h1> Background Generator</h1>
+	<input oninput="setGradient()" class="color1" type="color" name="color1" value="#00ff00">
+	<input oninput="setGradient()" class="color2" type="color" name="color2" value="#ff0000">
+	<h2> Current CSS Background</h2>
+	<h3></h3>
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html> */

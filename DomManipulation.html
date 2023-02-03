@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DomManipulation</title>
+</head>
+<body>
+<h1>Dom Manipulation</h1>
+<h2>
+DOM Selectors</h2>
+<p>
+--------------<br>
+getElementsByTagName<br>
+getElementsByClassName<br>
+getElementById<br><br>
+
+querySelector<br>
+querySelectorAll<br><br>
+
+getAttribute<br>
+setAttribute<br><br>
+
+##Changing Styles<br>
+style.{property} //ok<br><br>
+
+className //best<br>
+classList //best<br><br>
+
+classList.add<br>
+classList.remove<br>
+classList.toggle<br><br>
+
+##Bonus<br>
+innerHTML //DANGEROUS<br><br>
+
+parentElement<br>
+children<br><br>
+
+##It is important to CACHE selectors in variables<br>
+
+-------------------------------------------------------------------
+In acest exercitiu s-au creat in javascript:<br>
+- butoane adaugate indexului liniei<br>
+- s-a asociat stilul css linethrow in momentul in care se apasa pe elem listei<br>
+- s-au creat functii pt butoane a.i. in momentul in care sunt actionate sa stearga parintele listei<br><br>
+
+*Exercise: DOM Events<br>
+Using the Shopping List files from the previous videos update the shopping list app to do the following:<br>
+
+1. If you click on the list item, it toggles the .done  class on and off.<br><br><br>
+
+2. Add buttons next to each list item to delete the item when clicked on its corresponding delete button.<br><br>
+
+3. BONUS: When adding a new list item, it automatically adds the delete button next to it (hint: be sure to check if new 
+items are clickable too!)<br><br>
+
+Good Luck!<br><br>
+
+Please note that: <br><br>
+
+In the browser most code is event driven and writing interactive applications in JavaScript is often about waiting 
+for and reacting to events, to alter the behaviour of the browser in some way. Events occur whenever something
+ happens on a page based on user interaction. These are all defined by w3c. */<br><br>
+
+
+/*var button = document.getElementById("enter");<br>
+var input = document.getElementById("userinput");<br>
+var ul = document.querySelector("ul");<br><br>
+
+function inputLength() {<br>
+	return input.value.length;<br>
+}<br>
+function createListElement() {<br>
+	var li = document.createElement("li");<br>
+	li.appendChild(document.createTextNode(input.value));<br>
+	ul.appendChild(li);<br>
+	input.value = "";<br>
+}<br><br>
+function addListAfterClick() {<br>
+	if (inputLength() > 0) {<br>
+		createListElement();<br>
+	}<br>
+}<br><br>
+function addListAfterKeypress(event) {<br>
+	if (inputLength() > 0 && event.keyCode === 13) {<br>
+		createListElement();<br>
+	}<br>
+}<br><br>
+button.addEventListener("click", addListAfterClick);<br>
+input.addEventListener("keypress", addListAfterKeypress);*/<br><br>
+
+/*1. If you click on the list item, it toggles the .done class on and off.*/<br><br>
+
+
+/*var item = ul.getElementsByTagName("li"); */<br><br>
+
+/*li.addEventListener("click", toggleDone);*/<br><br>
+
+var input=document.getElementById("userinput");<br>
+var button=document.getElementById("enter");<br>
+var ul=document.querySelector("ul");<br>
+var listItems=document.getElementsByTagName("li"); <br><br>
+
+
+function inputLength(){<br>
+	return input.value.length;<br>
+}<br><br>
+
+
+function createListElement()<br>
+	{<br>
+		var li=document.createElement("li");<br>
+			li.appendChild(document.createTextNode(input.value));<br>
+			ul.appendChild(li);<br>
+			input.value="";<br><br>
+
+		var btn = document.createElement("button");<br>
+	     	btn.appendChild(document.createTextNode("Delete!"));<br>
+	 		li.appendChild(btn);<br>
+	 		btn.onclick = removeParent;<br>
+	 }<br><br>
+
+function addListAfterClick(){<br>
+    if (inputLength()>0){<br>
+    	createListElement();<br>
+    }<br>
+}<br><br>
+function addListAfterKeypress(event){<br>
+	  if (inputLength()>0 && event.keyCode===13){<br>
+	  	createListElement();<br>
+	  }<br>
+}<br><br>
+button.addEventListener("click",addListAfterClick);<br>
+input.addEventListener("keypress",addListAfterKeypress);<br><br>
+
+ul.onclick=function(event){<br>
+	var target=event.target;<br>
+	target.classList.toggle("done");<br>
+}<br><br>
+function listLength(){<br>
+	return listItems.length;<br>
+}<br><br>
+function deleteButton(){<br>
+	var btn=document.createElement("button");<br>
+btn.appendChild(document.createTextNode("Delete!"));<br>
+listItems[i].appendChild(btn);<br>
+btn.onclick=removeParent;<br>
+}<br><br>
+
+<!-- for( i=0;i<listLength();i++){<br>
+
+deleteButton();<br>
+}<br><br>
+	function removeParent(evt){<br>
+	evt.target.parentNode.remove();}<br><br>
+
+
+---------------------style.css -------------<br><br>
+.coolTitle {
+  text-align: center;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 40px;
+  transform: skewY(-10deg);
+  letter-spacing: 4px;
+  word-spacing: -8px;
+  color: tomato;
+  text-shadow: 
+    -1px -1px 0 firebrick,
+    -2px -2px 0 firebrick,
+    -3px -3px 0 firebrick,
+    -4px -4px 0 firebrick,
+    -5px -5px 0 firebrick,
+    -6px -6px 0 firebrick,
+    -7px -7px 0 firebrick,
+    -8px -8px 0 firebrick,
+    -30px 20px 40px dimgrey;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+body {
+
+  text-align: center;
+  align-items: center;
+ } -->
+
+ ------------------------- html ------------------
+
+	<h1 class="#">Shopping List</h1>
+	<p class="#" id="first">Get it done today</p>
+	<input id="userinput" type="text" placeholder="enter items">
+	<button id="enter">Enter</button>
+	<ul class="#">
+		<li class="liselect" random="23">Notebook</li>
+		<li class="liselect">Jello</li>
+		<li class="liselect">Spinach</li>
+		<li class="liselect">Rice</li>
+		<li class="liselect">Birthday Cake</li>
+		<li class="liselect">Candles</li>
+	</ul>
+	<script type="text/javascript" src="script.js"></script>
+
+<br>
+/* What we need from this application is that to pick a color from the two colorItems that we created. if click on the colored items, <br>
+it should open a window with a RGB color selector.<br>
+And idealy if I'll find a color that I like I would like to print in th bottom of the colorItems<br>
+For the printing of the RGB, we want to put a piece of text below the h2 in witch will be the values of the selected RGB.<br>
+in the HTML we insert a h3 section. So will selectect this section.  */<br><br>
+
+var css = document.querySelector("h3");<br>
+var color1 = document.querySelector(".color1");<br>
+var color2 = document.querySelector(".color2");<br>
+var body = document.getElementById("gradient")<br><br>
+
+// if we want to change the background color, we can use the following syntax: <br><br>
+// body.style.background = "blue";<br><br>
+
+/* What we want to do is to listen to an event about the user actions on the colorItems and print in the H3 sector.
+For inputs we would use the input event.*/<br><br>
+
+// color1.addEventListener("input", function(){<br>
+//	console.log(color1.value);<br><br><br>
+//});<br><br>
+
+//color2.addEventListener("input", function(){<br>
+//	console.log(color2.value);<br>
+//}); <br><br>
+//after we add the event (addEventListener) we'll see that, when the mouse is scrolling the colors of the colorItems, the 
+//console prints all the color on witch the mue is pointing<br><br>
+
+// for changing the background-color in real-time, we will complete the function with the following syntax:<br><br>
+//color1.addEventListener("input", function(){<br>
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";<br>
+//});<br><br>
+
+//color1.addEventListener("input", function(){<br>
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";<br>
+//});<br><br>
+
+//color2.addEventListener("input", function(){<br>
+//	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";<br>
+//});<br><br>
+
+// according to the DRY principle, we shoud create a fucntion that does the bosy.style.backgroun<br><br>
+
+function setGradient(){<br>
+	body.style.background = "linear-gradient(to right, "+ color1.value + ", " + color2.value + ")";<br>
+	css.textContent = body.style.background + ";";<br>
+};<br><br>
+
+// for printing the RGB selected for the linear-gradient on the two colorItems we inseted the css.textContent syntax in the 
+// setGradient() function <br><br>
+
+color1.addEventListener("input", setGradient);<br>
+color2.addEventListener("input", setGradient);<br><br>
+
+// beacause the input trigger is automaticaly done, we do not have to call tge functon setGradient with the ()<br>
+
+// another way of calling the function, is in html file, in the input section we could write: oninput="setGradient()"<br><br>
+
+
+<body id="gradient">
+	<h1> Background Generator</h1>
+	<input oninput="setGradient()" class="color1" type="color" name="color1" value="#00ff00">
+	<input oninput="setGradient()" class="color2" type="color" name="color2" value="#ff0000">
+	<h2> Current CSS Background</h2>
+	<h3></h3>
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html> */
+

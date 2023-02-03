@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JS_DataStructures</title>
+</head>
+<body>
+
+<h1>JS-DataStructures</h1>
+
+
+<h2>------------Arrays ------------ Objects ------------------</h2>
+
+<h3>-----------------Arrays --------------</h3>
+<p>
+// using this array,<br>
+// var array = ["Banana", "Apples", "Oranges", "Blueberries"];<br><br>
+
+
+// 1. Remove the Banana from the array.<br><br>
+
+array.shift();<br><br>
+
+// 2. Sort the array in order.
+<br><br>
+array.sort();<br><br>
+
+// 3. Put "Kiwi" at the end of the array.
+<br><br>
+array.push("Kiwi");<br><br>
+
+// 4. Remove "Apples" from the array.
+<br><br>
+array.splice(0, 1);<br><br>
+
+// 5. Sort the array in reverse order. (Not alphabetical, but reverse<br>
+// the current Array i.e. ['a', 'c', 'b'] becomes ['b', 'c', 'a'])<br><br>
+
+you should have at the end:<br><br>
+["Kiwi", "Oranges", "Blueberries"]<br>
+<br>
+array.reverse();<br><br>
+
+// using this array,<br>
+// var array2 = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];<br>
+// access "Oranges".
+<br><br>
+array2[1][1][0];<br><br>
+
+</p>
+
+<h3>-----------------------Objects----------------------------</h3>
+<p>
+
+// Create an object and an array which we will use in our facebook exercise.<br><br>
+
+
+// 1. Create an object that has properties "username" and "password". Fill those values in with strings.<br><br>
+
+{<br>
+	username: "andrei",<br>
+	password: "supersecret"<br>
+} <br><br>
+
+// 2. Create an array which contains the object you have made above and name the array "database".<br><br>
+var database = [<br>
+	{<br>
+		username: "andrei",<br>
+		password: "supersecret"<br>
+	}<br>
+]
+<br><br>
+// 3. Create an array called "newsfeed" which contains 3 objects with properties "username" and "timeline".<br><br>
+var newsfeed = [<br>
+	{<br>
+		username: "Bobby",<br>
+		timeline: "So tired from all that learning!"<br>
+	},<br><br>
+	{<br>
+		username: "Sally",<br>
+		timeline: "Javascript is sooooo cool!"<br>
+	},<br>
+	{<br>
+		username: "Mitch",<br>
+		timeline: "Javascript is preeetyy cool!"<br>
+	}<br>
+];<br><br>
+
+</p>
+
+
+<h3>-----------------------Pass By Value--------------------------</h3>
+<p>
+var a = 5;<br>
+var b = a;<br>
+
+b++;<br><br>
+
+//console.log(a); //5<br>
+//console.log(b); //6<br>
+// pass by value means that we transfer the value form another variable (b = a in our case) and store that value in 
+//another place/database. So will have 2 primitive values stored in 2 diferent places (a and b).<br><br>
+</p>
+
+<h3>---------------------Pass By Reference ---------------------</h3>
+<p>
+
+let obj1 = { name: 'ion', password: '123'};<br>
+let obj2 = obj1;<br><br>
+
+obj2.password = "0000";<br>
+console.log(obj1);<br>
+console.log(obj2);<br><br>
+
+// in console will obtain the same password for both objects. <br>
+// in objects in JS are stored in memory and are passed by reference which means that we don't copy the value like we did with 
+// primitive types. When we asssign obj1=obj2 we sad to the system where lives the object in memory, so the 2 variable obj will have
+//the same storage. 
+//as to be much clear: the obj1 reference to an object (we can think at it as being a box). and by doing obj2=obj1 we told the 
+//system that obj2 reference to the same box as obj1. <br>
+</p>
+
+<h3>------------------------- .concat() ---------------------------</h3>
+<p>
+var c =[1,2,3,4,5];<br>
+var d = [].concat(c);<br>
+d.push(123456);<br><br>
+
+console.log(d); // we wil see that the array d was modify as the push action called and became d[1, 2, 3, 4, 5, 123456]<br>
+// !!! it is FALSE !!! check it out !!! because var d = c; if we console.log(c); we'll see that also the c array was modify like d.<br><br>
+
+
+/*var c =[1,2,3,4,5];<br>
+var d = [].concat(c);<br>
+d.push(123456);<br><br>
+
+console.log(d); <br>
+This code will modify only the d string, by adding the no from push <br>
+</p>
+
+<h3>---------------------Clone an object ---------------------</h3>
+<p>
+
+let obj = {a: 'a', b: 'b', c:'c'};<br>
+let clone = Object.assign({}, obj); // we made a clone of the object obj, in another enpty object {}<br>
+// the first paramenter ({} empty obj in our case) is the object to copy to and the second is 
+//the source from which will copy the clone (obj in our case)<br><br>
+
+// the clone object will not be affected by any modification did on the main object. ex:<br><br>
+obj.c = 5;<br>
+console.log(clone);<br><br>
+the result in console log for the cloned obj is:<br>
+ console.log(clone);<br>
+{a: 'a', b: 'b', c: 'c'}<br>
+undefined<br><br>
+the result in console log for the main obj is:<br>
+obj;<br>
+{a: 'a', b: 'b', c: 5}<br><br>
+
+//the shorhand of clone is:<br>
+let clone2 = {...obj}; // that means we clone another empty object with the proprieties from main obj.<br><br>
+
+//if inside the main object beside string, we also have an object, the clones will copy the first line of the maine clone and 
+//any modification of this line in the main object will not affect the clones. But if we change the the inside object form the 
+//main object, the clones will be affected and will look like the main obj, because, by modifying the second line of the main obj 
+//will be copied by the clones... ex:<br><br>
+let obj = {<br>
+	a: 'a',<br>
+	b: 'b',<br>
+	c: { insideObj: "blabla"}<br>
+};<br><br>
+let clone1 = Object.assign({}, obj);<br>
+let clone2 = {...obj};<br>
+obj.c = "abc";<br>
+console.log(obj);<br>
+console.log(clone1);<br>
+console.log(clone2);<br><br>
+// as we assign the text abc to the object c and did not modify it's inner, we'll se that the clone are not modifying with this 
+//change. Tha is because we changed the fist line othe the obj. <br><br>
+/* {a: 'a', b: 'b', c: 'abc'}a: "a"b: "b"c: "abc"<br>
+[[Prototype]]: Object <br>
+{a: 'a', b: 'b', c: {…}}<br>
+a: "a"<br>
+b: "b"<br>
+c: {inideobj: 'blabla'}<br>
+[[Prototype]]: Object <br> 
+{a: 'a', b: 'b', c: {…}}<br>
+a: "a"<br>
+b: "b"<br>
+c: {inideobj: 'blabla'}<br>
+[[Prototype]]: Object<br>
+undefined <br><br>
+
+//if we modify the inside object of the main obj:<br><br>
+obj.c.insideObj = "weeelll";<br>
+// and we delete obj.c ="abc"<br>
+//we'll see that all the objects, including the cloned ones will be modified<br><br>
+
+
+{a: 'a', b: 'b', c: {…}}a: "a"b: "b"c: {insideObj: 'weeelll'}[[Prototype]]: Object<br><br>
+
+{a: 'a', b: 'b', c: {…}}a: "a"b: "b"c: {insideObj: 'weeelll'}[[Prototype]]: Object<br><br>
+
+{a: 'a', b: 'b', c: {…}}a: "a"b: "b"c: {insideObj: 'weeelll'}[[Prototype]]: Object<br><br>
+undefined<br><br>
+
+// if we want to clone the object including the insideObj (to clone = to make a new string with the initial value of the obj
+// without copying any changes of the insideObj)we have to use the shallow cloning / deep cloning:<br>
+</p>
+<h3>------------------------------shallow cloning / deep cloning-----------------------</h3>
+<p>
+let superClone =JSON.parse(JSON.stringify(obj));<br>
+//by doing this code, we'll tell the system to modify all that is inside the (obj) in strings (that includes the insideObj)
+//and do the superClone. Than parse the obj like it was before (in our case: 3 string and an insideObj)<br><br>
+
+//the JSON function is not recomanded to be used in large object that we would like to clone because it will take a lot of time to
+//do this function<br><br>
+
+</p>
+-----------------------------------------------------------
+<h3>----------------------------Reference type---------------------</h3>
+<p>
+//if we do in console [] === [] will get false. Also if we do [1] === [1] will recive false, too<br><br>
+
+var object1 = {value: 10};<br>
+var object2 = object1;<br>
+var object3 = {value: 10};<br><br>
+
+// if we do object1 === object2 will get true<br>
+// but if we do object1 === object3 will get false althought we have the same value declareted <br>
+// in Js the numer, text, undefine, null, bullians (true/false), symbols, are defined as primitive type. That means they are
+// predefinited by programming language Js - so Js tell us what they are
+// a "reference type" which is a non-primtive type are not defined by the programming languages so those reference type are created
+// by the programmer
+// in our case, we created 3 object, and said: (1)create am object1 with a value, (2) create an object2 that is reference to object1
+//(3) create an object3 and put inside a value. 
+// so the object1 will not be equal to object3, becase are different object. Although they have the same value, are different obj
+// if we check if the values are equal: object1.value === object3.value - will recive true, but object1===object3 is false<br><br>
+var object1 = {value: 10};<br>
+var object2 = object1;<br>
+var object3 = {value: 10};/<br><br>
+</p>
+
+<h3>------------------- context vs. scope-------------------</h3>
+<p>
+function b(){<br>
+	let a = 4;<br>
+};<br><br>
+// in the upper function we create a variable a that lives insede the function. so if we do console.log(a); will not receive 
+//it's value because is not in the main scope, it's in the function scope.
+// context tell us where we are within the object
+// if we do: console.log(this); will recive the window object. So this is the window object and is predefined by the prog language
+// this means = what is the object environment that we are in right now<br><br>
+
+const object4 ={<br>
+	a: function () {<br>
+		console.log(this);<br>
+	}
+}<br>
+</p>
+<h3>------------------------- Instantiation---------------------------</h3>
+<p>
+class Player {<br>
+	constructor(name, type) {<br>
+		this.name = name;<br>
+		this.type = type;<br>
+	}<br>
+}<br><br>
+// we create a class for the Player and we include a constructor for the name and type and inside of if we insert the name and type
+// the constructor when making a class, says that everytime i'm making a copy of a "Player" the first thing that gets run is the 
+// "constuctor" function and this function will create the properties (inserted in it) of the Player object<br><br>
+class Player {<br>
+	constructor(name, type) {<br>
+		console.log(this);<br>
+		this.name = name;<br>
+		this.type = type;<br>
+	}<br>
+	introduce() {<br>
+		console.log(`Hi I am ${this.name}, I am a ${this.type}`);<br>
+	}<br>
+}<br><br>
+// we add an introduce section of the Player class and console.log it with the credentials made of the construtor. 
+// with this function we are saying that any player we create it will be able to introduce himself and also he will have 
+//$this.name and $this.type
+// the reason that we use "this" in the this.name and this.type is to be able to access those proprieties off all created 
+//players<br><br>
+
+class Wizard extends Player {<br>
+	constructor (name, type) {<br>
+		super(name, type)<br>
+	}<br>
+	play() {<br>
+		console.log(`I am ${this.type}`);<br>
+	}<br>
+}<br><br>
+
+// with this propriety we says that we want to extend the player with whatever the class wizard has
+// anytime we want to extent something we need to also call the "constructor" function of the thing we will extent ( in our case
+// the player's constructor) and we have to do something called "super" with the proprieties that we want to pass to the constructor<br><br>
+
+const wizard1 = new Wizard('Shelly', 'Healer');<br>
+const Wizard2 = new Wizard('Shawn', 'Dark Magic');<br><br>
+// we created new wizard and we used the syntax/keyword "new". When the program will see this syntax it'll know that we want to create a new thing
+// we insert two parameters in the new wizard ... so the program will go to the wizard class and make the function of extend player 
+// and will go to the constructor where is the super and it takes us up to the contructor of the player and run the consturcto function
+// in it and attach "this" to the wizard and access introduce() function and then the play() function
+// so now we have acces to: wizard1.play(); and receive "I am a healer" and also to wizard1.introduce(); and receive the named text<br>
+</p>
+
+
+</body>
+</html>
+
+
+
+
+
